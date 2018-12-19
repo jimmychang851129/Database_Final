@@ -75,8 +75,13 @@ show databases;
 ## Reference
 
 [express+mysql](https://dotblogs.com.tw/explooosion/2016/07/18/010601)
+
 [mysql Docker設定](https://medium.com/@lvthillo/customize-your-mysql-database-in-docker-723ffd59d8fb)
+
 [dockerhub mysql](https://hub.docker.com/_/mysql/)
+
 [dodcker tutorial](https://www.youtube.com/watch?v=YFl2mCHdv24)
+
 [docker stackoverflow指令](https://stackoverflow.com/questions/16840409/how-to-list-containers-in-docker)
+
 [docker mysql 中文介紹](https://peihsinsu.gitbooks.io/docker-note-book/content/common-docker-mysql.html)
