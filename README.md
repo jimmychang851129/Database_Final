@@ -85,3 +85,5 @@ show databases;
 [docker stackoverflow指令](https://stackoverflow.com/questions/16840409/how-to-list-containers-in-docker)
 
 [docker mysql 中文介紹](https://peihsinsu.gitbooks.io/docker-note-book/content/common-docker-mysql.html)
+
+[mysql w3c](https://www.w3resource.com/sql/data-type.php#NUMERIC)
