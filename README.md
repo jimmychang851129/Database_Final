@@ -9,6 +9,31 @@
 - mysql username : root
 - mysql password : 123
 - mysql listen port : 3306
+- optional(用不到，直接用root登入就好了)
+    - DB username : jimmy
+    - DB password : jimmy
+
+## 架設
+### 安裝docker 並啟動
+[docker install](https://www.docker.com/)
+### 建置Mysql，Anime DB,table的image檔
+
+```
+$ cd mysql/
+$ ./setup.sh
+```
+
+### 跑起Anime DB container
+
+```
+$ ./run.sh
+```
+
+### 清除Anime DB container
+
+```
+$ clean.sh
+```
 
 ## 檔案介紹
 
@@ -67,10 +92,21 @@
 
 > mysql -uroot -p
 
-輸入密碼
+或
 
-### 查看目前database
-show databases;
+> mysql -ujimmy -pjimmy
+ 
+### 常用指令
+```
+$ show databases;   查看所有database
+
+$ use [database];   使用你想用的DB, [database]為你想看的database名稱
+
+$ show tables;      執行上述指令後，執行這個來看該database內的table
+
+$ DESCRIBE [table]  看出你想要看的table裡面的field資訊
+
+```
 
 ## Reference
 
@@ -87,3 +123,5 @@ show databases;
 [docker mysql 中文介紹](https://peihsinsu.gitbooks.io/docker-note-book/content/common-docker-mysql.html)
 
 [mysql w3c](https://www.w3resource.com/sql/data-type.php#NUMERIC)
+
+[mysql 語法](http://www.mysqltutorial.org/mysql-show-columns/)
