@@ -29,15 +29,17 @@ CREATE TABLE Incharge (			-- double primary key not sure handle correct
 );
 
 CREATE TABLE Staff (
-	SName varchar(15) PRIMARY KEY,
-	SdName varchar(30)	# studio name
+	SName varchar(15),
+	SdName varchar(30),	# studio name
+	PRIMARY KEY(SName)
 );
 
 CREATE TABLE Studio(
-	SdName varchar(30) PRIMARY KEY,
+	SdName varchar(30),
 	FoundDate date,
 	Location varchar(45),	-- don't know how long it should be
-	President varchar(15)
+	President varchar(15),
+	PRIMARY KEY(SdName)
 );
 
 CREATE TABLE Genre(		-- double  primary key
@@ -55,18 +57,20 @@ CREATE TABLE Casting(
 );
 
 CREATE TABLE VoiceActor(
-	VName varchar(15) PRIMARY KEY,	-- voice actor name
+	VName varchar(15),	-- voice actor name
 	Gender BOOLEAN,
 	Birthday Date,
 	Debut Date,
-	Agent varchar(21)
+	Agent varchar(21),
+	PRIMARY KEY(VName)
 );
 
 CREATE TABLE Agent(
-	AgName varchar(21) PRIMARY KEY,
+	AgName varchar(21),
 	Location varchar(45),
 	FoundDate Date,
-	President varchar(15)
+	President varchar(15),
+	PRIMARY KEY(AgName)
 );
 
 CREATE TABLE ThemeSong(
@@ -80,9 +84,10 @@ CREATE TABLE ThemeSong(
 );
 
 CREATE TABLE Singer(
-	VName varchar(15) PRIMARY KEY,
+	VName varchar(15),
 	Gender BOOLEAN, -- 0 for male 1 for female
 	Birthday Date,
 	Debut Date,
-	Agent varchar(21)
+	Agent varchar(21),
+	PRIMARY KEY(VName)
 );
