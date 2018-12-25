@@ -11,29 +11,6 @@
 -- Character name varchar(20)
 -- type , genre INTEGER
 -- Gender BOOLEAN
-
-CREATE TABLE Animation (
-	AnimeID INTEGER PRIMARY KEY,
-	AName varchar(30) NOT NULL,
-	Episode SMALLINT,
-	Season SMALLINT NOT NULL,
-	Rating SMALLINT,
-	sdName varchar(30)	-- studio name
-);
-
-CREATE TABLE Incharge (			-- double primary key not sure handle correct
-	AnimeID INTEGER,
-	Job varchar(30),
-	SName varchar(15),	-- studio name
-	PRIMARY KEY(AnimeID,Job)
-);
-
-CREATE TABLE Staff (
-	SName varchar(15),
-	SdName varchar(30),	# studio name
-	PRIMARY KEY(SName)
-);
-
 CREATE TABLE Studio(
 	SdName varchar(30),
 	FoundDate date,
@@ -42,27 +19,38 @@ CREATE TABLE Studio(
 	PRIMARY KEY(SdName)
 );
 
+CREATE TABLE Animation (
+	AnimeID INTEGER,
+	AName varchar(30) NOT NULL,
+	Episode SMALLINT,
+	Season SMALLINT NOT NULL,
+	Rating SMALLINT,
+	sdName varchar(30) NOT NULL,	-- studio name
+	PRIMARY KEY(AnimeID),
+	FOREIGN KEY (sdName) REFERENCES Studio(SdName)
+);
+
 CREATE TABLE Genre(		-- double  primary key
 	AnimeID INTEGER,
 	Genre INTEGER,
-	PRIMARY KEY(AnimeID,Genre)
+	PRIMARY KEY(AnimeID,Genre),
+	FOREIGN KEY (AnimeID) REFERENCES Animation(AnimeID)
 );
 
-CREATE TABLE Casting(
+CREATE TABLE Staff (
+	SName varchar(15),
+	SdName varchar(30),	# studio name
+	PRIMARY KEY(SName),
+	FOREIGN KEY (SdName) REFERENCES Studio(SdName)
+);
+
+CREATE TABLE Incharge (			-- double primary key not sure handle correct
 	AnimeID INTEGER,
-	VName varchar(15),
-	CharacterName varchar(20),	-- Character is keyword !!!
-	ChGender BOOLEAN, 			-- 0 for male 1 for female
-	PRIMARY KEY(AnimeID,CharacterName)	
-);
-
-CREATE TABLE VoiceActor(
-	VName varchar(15),	-- voice actor name
-	Gender BOOLEAN,
-	Birthday Date,
-	Debut Date,
-	Agent varchar(21),
-	PRIMARY KEY(VName)
+	Job varchar(30),
+	SName varchar(15),	-- studio name
+	PRIMARY KEY(AnimeID,Job),
+	FOREIGN KEY (SName) REFERENCES Staff(SName),
+	FOREIGN KEY (AnimeID) REFERENCES Animation(AnimeID)
 );
 
 CREATE TABLE Agent(
@@ -73,14 +61,24 @@ CREATE TABLE Agent(
 	PRIMARY KEY(AgName)
 );
 
-CREATE TABLE ThemeSong(
-	SgName varchar(20),
-	Author varchar(15),
-	Composer varchar(15),
-	Singer varchar(15),
-	Type INTEGER,
-	AName varchar(30),
-	PRIMARY KEY(SgName)  -- need so much feature ?
+CREATE TABLE VoiceActor(
+	VName varchar(15),	-- voice actor name
+	Gender BOOLEAN,
+	Birthday Date,
+	Debut Date,
+	Agent varchar(21),
+	PRIMARY KEY(VName),
+	FOREIGN KEY (Agent) REFERENCES Agent(AgName)
+);
+
+CREATE TABLE Casting(
+	AnimeID INTEGER,
+	VName varchar(15),
+	CharacterName varchar(20),	-- Character is keyword !!!
+	ChGender BOOLEAN, 			-- 0 for male 1 for female
+	PRIMARY KEY(AnimeID,CharacterName),
+	FOREIGN KEY (AnimeID) REFERENCES Animation(AnimeID),
+	FOREIGN KEY (VName) REFERENCES VoiceActor(VName)
 );
 
 CREATE TABLE Singer(
@@ -89,5 +87,18 @@ CREATE TABLE Singer(
 	Birthday Date,
 	Debut Date,
 	Agent varchar(21),
-	PRIMARY KEY(VName)
+	PRIMARY KEY(VName),
+	FOREIGN KEY (Agent) REFERENCES Agent(AgName)
+);
+
+CREATE TABLE ThemeSong(
+	SgName varchar(20),
+	Author varchar(15),
+	Composer varchar(15),
+	Singer varchar(15),
+	Type INTEGER,
+	AnimeID INTEGER,
+	PRIMARY KEY(SgName),  -- need so much feature ?
+	FOREIGN KEY (SgName) REFERENCES Singer(VName),
+	FOREIGN KEY (AnimeID) REFERENCES Animation(AnimeID)
 );

@@ -125,3 +125,5 @@ $ DESCRIBE [table]  看出你想要看的table裡面的field資訊
 [mysql w3c](https://www.w3resource.com/sql/data-type.php#NUMERIC)
 
 [mysql 語法](http://www.mysqltutorial.org/mysql-show-columns/)
+
+[set mysql charset](https://dev.mysql.com/doc/refman/8.0/en/create-table-foreign-keys.html)
