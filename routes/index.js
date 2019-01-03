@@ -16,6 +16,20 @@ connection.connect(function(err) {
   console.log('connected as id ' + connection.threadId);
 });
 
+// sample query
+
+// connection.query('SELECT * FROM Studio', function (error, results, fields) {
+//   if (error) throw error;
+//   console.log('The solution is: ', results);
+// });
+
+
+// var post = {SdName:'TROYCA',FoundDate:'2000-10-01',President:'安安安'}
+// var query = connection.query('INSERT INTO Studio SET ?', post, function (error, results, fields) {
+//   if (error) throw error;
+//   // Neat!
+// });
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });

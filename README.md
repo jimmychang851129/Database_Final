@@ -127,3 +127,9 @@ $ DESCRIBE [table]  看出你想要看的table裡面的field資訊
 [mysql 語法](http://www.mysqltutorial.org/mysql-show-columns/)
 
 [set mysql charset](https://dev.mysql.com/doc/refman/8.0/en/create-table-foreign-keys.html)
+
+[charset utf8](https://github.com/ibusybox/mysqlutf8)
+
+[sql insert](https://codeburst.io/insert-with-select-statement-for-columns-with-foreign-key-constraint-in-mysql-with-examples-f9ab57c8e4dd)
+
+[nodejs mysql insert](https://stackoverflow.com/questions/21779528/insert-into-fails-with-node-mysql)

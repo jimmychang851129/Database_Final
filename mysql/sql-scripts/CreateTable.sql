@@ -1,3 +1,7 @@
+-- add AnimeDate in animation
+-- TODO 
+-- 1. add imagepath
+
 -- Anime ID used diff from docs
 -- casting primary key has changed diff from docs
 
@@ -13,11 +17,11 @@
 -- Gender BOOLEAN
 CREATE TABLE Studio(
 	SdName varchar(30),
-	FoundDate date,
-	Location varchar(45),	-- don't know how long it should be
-	President varchar(15),
+	FoundDate char(11),
+	Location char(90) CHARACTER SET utf8mb3 COLLATE utf8_unicode_ci,	-- don't know how long it should be
+	President varchar(15) CHARACTER SET utf8mb3 COLLATE utf8_unicode_ci,
 	PRIMARY KEY(SdName)
-);
+)CHARACTER SET = utf8;
 
 CREATE TABLE Animation (
 	AnimeID INTEGER,
@@ -25,6 +29,7 @@ CREATE TABLE Animation (
 	Episode SMALLINT,
 	Season SMALLINT NOT NULL,
 	Rating SMALLINT,
+	AnimeDate date,					-- date
 	sdName varchar(30) NOT NULL,	-- studio name
 	PRIMARY KEY(AnimeID),
 	FOREIGN KEY (sdName) REFERENCES Studio(SdName)
@@ -56,7 +61,7 @@ CREATE TABLE Incharge (			-- double primary key not sure handle correct
 CREATE TABLE Agent(
 	AgName varchar(21),
 	Location varchar(45),
-	FoundDate Date,
+	FoundDate char(11),
 	President varchar(15),
 	PRIMARY KEY(AgName)
 );
