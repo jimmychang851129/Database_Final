@@ -24,7 +24,7 @@ connection.connect(function(err) {
 // });
 
 
-// var post = {SdName:'TROYCA',FoundDate:'2000-10-01',President:'安安安'}
+// var post = {SdName:'TROYCA',FoundDate:'2000-10-01',President:'長野敏之'}
 // var query = connection.query('INSERT INTO Studio SET ?', post, function (error, results, fields) {
 //   if (error) throw error;
 //   // Neat!
