@@ -17,7 +17,7 @@
 -- Gender BOOLEAN
 CREATE TABLE Studio(
 	SdName varchar(30),
-	FoundDate char(11),
+	FoundDate char(5),
 	Location char(90), 		-- CHARACTER SET utf8mb3 COLLATE utf8_unicode_ci,	-- don't know how long it should be
 	President varchar(21), 	-- CHARACTER SET utf8mb3 COLLATE utf8_unicode_ci,
 	PRIMARY KEY(SdName)
@@ -25,11 +25,11 @@ CREATE TABLE Studio(
 
 CREATE TABLE Animation (
 	AnimeID INTEGER,
-	AName varchar(30) NOT NULL,
+	AName varchar(50) NOT NULL,
 	Episode SMALLINT,
 	Season SMALLINT NOT NULL,
 	Rating SMALLINT,
-	AnimeDate date,					-- date
+	AnimeDate CHAR(7),					-- date
 	sdName varchar(30) NOT NULL,	-- studio name
 	image varchar(30),
 	PRIMARY KEY(AnimeID),
@@ -70,8 +70,8 @@ CREATE TABLE Agent(
 CREATE TABLE VoiceActor(
 	VName varchar(21),	-- voice actor name
 	Gender BOOLEAN,
-	Birthday Date,
-	Debut Date,
+	Birthday char(10),
+	Debut char(5),
 	Agent varchar(21),
 	image varchar(30),
 	PRIMARY KEY(VName),
