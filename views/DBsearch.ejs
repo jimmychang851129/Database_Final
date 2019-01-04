@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>動畫資訊檢索系統</title>
+      <meta charset="utf-8">
+      <link rel='stylesheet' href='/stylesheets/bootstrap.min.css'/>
+	    <script src="/javascripts/jquery.min.js"></script>
+	    <script src="/javascripts/bootstrap.min.js"></script>
+	    <style type="text/css">
+	    .navbar{
+	      left:10%;
+	      width:80%;
+	    }
+	    </style>
+  </head>
+  <body>
+  	    <nav class="navbar navbar-toggleable-md navbar-inverse bg-primary navbar-fixed">  
+      <a class="navbar-brand" href="#">動畫資訊檢索系統</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="author">作者介紹</a>
+            <li class="nav-item active">
+            	<a class="nav-link" href="DBsearch">動畫資訊檢索</a>
+            </li>
+        </ul>
+      </div>
+    </nav>
+
+     <div class="container" style="padding-top:50px">
+      <h1 style="color:red">動畫搜尋</h1>
+       <form role="form" action="search" method="post" autocomplete="off">
+      搜尋項目 : <input type="text" name="SearchField" disabled="true" value="Anime"> <br>
+      動畫名稱 : <input type="text" name="AnimeName"><br>
+      <input type="submit" value="搜尋">
+    </form>
+    <hr>
+    <h1 style="color:red">風格搜尋</h1>
+    <form role="form" action="search" method="post" autocomplete="off">
+       搜尋項目 : <input type="text" name="SearchField" disabled="true" value="Genre"> <br>
+       <input type="checkbox" name="GenreName" value="1">動作
+        <input type="checkbox" name="GenreName" value="2">魔法
+        <input type="checkbox" name="GenreName" value="3">奇幻
+        <input type="checkbox" name="GenreName" value="4">懸疑
+        <input type="checkbox" name="GenreName" value="5">冒險
+        <input type="checkbox" name="GenreName" value="6">校園
+        <input type="checkbox" name="GenreName" value="7">戀愛
+        <input type="checkbox" name="GenreName" value="8">青春
+        <input type="checkbox" name="GenreName" value="9">音樂<br>
+        <input type="submit" name="搜尋">
+    </form>
+    </div>
+  </body>
+</html>

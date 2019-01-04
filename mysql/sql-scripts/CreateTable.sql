@@ -18,7 +18,7 @@
 CREATE TABLE Studio(
 	SdName varchar(30),
 	FoundDate char(5),
-	Location char(90), 		-- CHARACTER SET utf8mb3 COLLATE utf8_unicode_ci,	-- don't know how long it should be
+	Location varchar(90), 		-- CHARACTER SET utf8mb3 COLLATE utf8_unicode_ci,	-- don't know how long it should be
 	President varchar(21), 	-- CHARACTER SET utf8mb3 COLLATE utf8_unicode_ci,
 	PRIMARY KEY(SdName)
 ); 							-- CHARACTER SET = utf8;
@@ -62,7 +62,7 @@ CREATE TABLE Incharge (			-- double primary key not sure handle correct
 CREATE TABLE Agent(
 	AgName varchar(30),
 	Location varchar(90),
-	FoundDate date,
+	FoundDate CHAR(5),
 	President varchar(21),
 	PRIMARY KEY(AgName)
 );

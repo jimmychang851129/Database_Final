@@ -1,6 +1,6 @@
 -- Studio
-Insert into Studio(SdName,FoundDate,Location,President) Values('ufotable','2000','杉並区本天沼2-47-17 第2榎本ビル','近藤光');
-Insert into Studio(SdName,FoundDate,Location,President) Values('TROYCA','2013','東京都練馬区石神井町3-17-19 石神井公園ビル','長野敏之');
+Insert into Studio(SdName,FoundDate,Location,President) Values('ufotable','2000','杉並区本天沼','近藤光');
+Insert into Studio(SdName,FoundDate,Location,President) Values('TROYCA','2013','東京都練馬区石神井町','長野敏之');
 Insert into Studio(SdName,FoundDate,President) Values('TYPE-MOON','2003','奈須蘑菇');
 Insert into Studio(SdName,Location,President) Values('Nitro+','日本東京都千代田區','でじたろう');
 Insert into Studio(SdName,FoundDate,Location,President) Values('MAGES.','2005','東京都渋谷區猿楽町','志倉千代丸');
@@ -8,7 +8,7 @@ Insert into Studio(SdName,FoundDate,Location,President) Values('WHITE FOX','2007
 Insert into Studio(SdName,FoundDate,Location,President) Values('A-1 Pictures','2005','東京都杉並區成田東4丁目38番18號','柏田真一郎');
 Insert into Studio(SdName,FoundDate,Location) Values('三次元','2006','東京都杉並區上荻一丁目');
 Insert into Studio(SdName,FoundDate,Location,President) Values('J.C.STAFF','1986','日本東京都武藏野市境二丁目','阿部倫久');
-
+Insert into Studio(SdName,FoundDate,Location,President) Values('ISSEN','1990','日本東京都世田谷區若林一丁目','奧野敏聰');
 
 -- Anime
 Insert into Animation(AnimeID,AName,Episode,Season,Rating,AnimeDate,sdName,image) VALUES(1,'Fate/Zero',25,1,10,'201110','ufotable','fz.jpeg');
@@ -63,8 +63,45 @@ Insert into Staff(SName) VALUES('新川直司');
 Insert into Staff(SName) VALUES('石黑恭平');
 Insert into Staff(SName) VALUES('川原礫');
 Insert into Staff(SName,SdName) VALUES('伊藤智彥','A-1 Pictures');
-
+Insert into Staff(SName,SdName) VALUES('ISSEN','ISSEN');
+Insert into Staff(SName) VALUES('大槻敦史');
 
 -- incharge
+Insert into Incharge(AnimeID,Job,SName) VALUES(1,'監督','青木英');
+Insert into Incharge(AnimeID,Job,SName) VALUES(1,'人設原案','武內崇');
+Insert into Incharge(AnimeID,Job,SName) VALUES(1,'作者','虛淵玄');
+Insert into Incharge(AnimeID,Job,SName) VALUES(2,'監督','佐藤卓哉');
+Insert into Incharge(AnimeID,Job,SName) VALUES(2,'系列構成','花田十輝');
+Insert into Incharge(AnimeID,Job,SName) VALUES(3,'作者','廣江禮威');
+Insert into Incharge(AnimeID,Job,SName) VALUES(3,'監督','青木英');
+Insert into Incharge(AnimeID,Job,SName) VALUES(4,'作者','長月達平');
+Insert into Incharge(AnimeID,Job,SName) VALUES(4,'監督','渡邊政治');
+Insert into Incharge(AnimeID,Job,SName) VALUES(5,'作者','鎌池和馬');
+Insert into Incharge(AnimeID,Job,SName) VALUES(5,'監督','錦織博');
+Insert into Incharge(AnimeID,Job,SName) VALUES(6,'作者','新川直司');
+Insert into Incharge(AnimeID,Job,SName) VALUES(6,'監督','石黑恭平');
+Insert into Incharge(AnimeID,Job,SName) VALUES(7,'作者','川原礫');
+Insert into Incharge(AnimeID,Job,SName) VALUES(7,'監督','伊藤智彥');
+Insert into Incharge(AnimeID,Job,SName) VALUES(8,'作者','川原礫');
+Insert into Incharge(AnimeID,Job,SName) VALUES(8,'監督','伊藤智彥');
+Insert into Incharge(AnimeID,Job,SName) VALUES(9,'作者','ISSEN');
+Insert into Incharge(AnimeID,Job,SName) VALUES(9,'劇本統籌','大槻敦史');
+
+-- Agent
+Insert into Agent(AgName,Location,FoundDate,President) VALUES('SACRA MUSIC','東京都千代田區六番町','2017','水野道訓');
+Insert into Agent(AgName,Location,FoundDate,President) VALUES('VV-ALKLINE','東京都文京区本郷','2017','澤野弘之');
+Insert into Agent(AgName,Location,FoundDate,President) VALUES('Music Ray\'n','東京都千代田區六番町','2005','高橋章');
+Insert into Agent(AgName,Location,FoundDate,President) VALUES('MAGES.','東京都港区三田三丁目','2006','志倉千代丸');
+Insert into Agent(AgName,Location,FoundDate,President) VALUES('TaWaRa','東京都新宿区西新宿','2016','大嶋文博');
+Insert into Agent(AgName,Location,FoundDate,President) VALUES('gr8!records','東京都千代田区六番町','2003','高橋章');
+Insert into Agent(AgName,Location,FoundDate,President) VALUES('81 produce','東京都澀谷區富谷1丁目','1981','南澤道義');
+Insert into Agent(AgName,Location,FoundDate,President) VALUES('響','東京都中野區中央一丁目','2009','木谷高明');
+Insert into Agent(AgName,Location,FoundDate,President) VALUES('大澤事務所','東京都港區赤坂4丁目','1984','大澤田鶴子');
+Insert into Agent(AgName) VALUES('I\'m Enterprise');
+Insert into Agent(AgName) VALUES('Across Entertainment');
+Insert into Agent(AgName) VALUES('EARLY WING');
+
+-- VoiceACtor
+-- Insert into VoiceActor()
 
 

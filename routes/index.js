@@ -11,18 +11,12 @@ var connection = mysql.createConnection({
   insecureAuth : true
 });
 
-connection.connect(function(err) {
-  if (err) throw err;
-  console.log('connected as id ' + connection.threadId);
-});
-
-// sample query
-
-// connection.query('SELECT * FROM Studio', function (error, results, fields) {
-//   if (error) throw error;
-//   console.log('The solution is: ', results);
+// connection.connect(function(err) {
+//   if (err) throw err;
+//   console.log('connected as id ' + connection.threadId);
 // });
 
+// sample query
 
 // var post = {SdName:'TROYCA',FoundDate:'2000-10-01',President:'長野敏之'}
 // var query = connection.query('INSERT INTO Studio SET ?', post, function (error, results, fields) {
@@ -32,7 +26,13 @@ connection.connect(function(err) {
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  // res.render('index', { title: 'Express' });
+  res.render('index');
 });
+
+
+router.get('/DBsearch',function(req,res,next){
+	res.render('DBsearch');
+})
 
 module.exports = router;
