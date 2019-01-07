@@ -5,7 +5,7 @@ Insert into Studio(SdName,FoundDate,President) Values('TYPE-MOON','2003','奈須
 Insert into Studio(SdName,Location,President) Values('Nitro+','日本東京都千代田區','でじたろう');
 Insert into Studio(SdName,FoundDate,Location,President) Values('MAGES.','2005','東京都渋谷區猿楽町','志倉千代丸');
 Insert into Studio(SdName,FoundDate,Location,President) Values('WHITE FOX','2007','東京都杉並区天沼','岩佐岳');
-Insert into Studio(SdName,FoundDate,Location,President) Values('A-1 Pictures','2005','東京都杉並區成田東4丁目38番18號','柏田真一郎');
+Insert into Studio(SdName,FoundDate,Location,President) Values('A-1 Pictures','2005','東京都杉並區成田東4丁目','柏田真一郎');
 Insert into Studio(SdName,FoundDate,Location) Values('三次元','2006','東京都杉並區上荻一丁目');
 Insert into Studio(SdName,FoundDate,Location,President) Values('J.C.STAFF','1986','日本東京都武藏野市境二丁目','阿部倫久');
 Insert into Studio(SdName,FoundDate,Location,President) Values('ISSEN','1990','日本東京都世田谷區若林一丁目','奧野敏聰');
@@ -97,11 +97,34 @@ Insert into Agent(AgName,Location,FoundDate,President) VALUES('gr8!records','東
 Insert into Agent(AgName,Location,FoundDate,President) VALUES('81 produce','東京都澀谷區富谷1丁目','1981','南澤道義');
 Insert into Agent(AgName,Location,FoundDate,President) VALUES('響','東京都中野區中央一丁目','2009','木谷高明');
 Insert into Agent(AgName,Location,FoundDate,President) VALUES('大澤事務所','東京都港區赤坂4丁目','1984','大澤田鶴子');
-Insert into Agent(AgName) VALUES('I\'m Enterprise');
-Insert into Agent(AgName) VALUES('Across Entertainment');
-Insert into Agent(AgName) VALUES('EARLY WING');
+Insert into Agent(AgName,Location,FoundDate,President) VALUES('I\'m Enterprise','東京都澀谷區代代木','1993','江崎加子男');
+Insert into Agent(AgName,Location,FoundDate,President) VALUES('Across Entertainment','東京都澀谷區富谷','2008','藤崎淳');
+Insert into Agent(AgName,Location,FoundDate,President) VALUES('EARLY WING','東京都港區元赤坂一丁目','2009','佐藤龍乙');
+Insert into Agent(AgName,Location,FoundDate,President) VALUES('劇団俳優座','東京都港区六本木四丁目','1944','宮崎健');
+Insert into Agent(AgName,Location,FoundDate,President) VALUES('東京俳優生活協同組合','東京都渋谷區千駄ヶ谷','1960','朝田孝二');
+Insert into Agent(AgName,Location,FoundDate,President) VALUES('株式会社劇団ひまわり','東京都涉谷區惠比壽西2丁目','1952','砂岡不二夫');
+Insert into Agent(AgName,Location,FoundDate,President) VALUES('Atomic Monkey','日本東京都港區東麻布','2007','田村司');
+Insert into Agent(AgName,Location,FoundDate,President) VALUES('ARTSVISION','東京都澀谷區代代木','1984','江崎加子男');
+Insert into Agent(AgName,Location,FoundDate,President) VALUES('Hirata Office','東京都港区赤坂','1979','桜井良樹');
+Insert into Agent(AgName,Location,FoundDate,President) VALUES('武士道','東京都中野區','2002','木谷高明');
+Insert into Agent(AgName,Location,FoundDate,President) VALUES('AXL ONE','東京都新宿區西新宿','2011','森川智之');
 
 -- VoiceACtor
--- Insert into VoiceActor()
-
-
+Insert into VoiceActor(VName,Gender,Birthday,Debut,Agent,image) VALUES('小山力也',FALSE,'1218','1987','劇団俳優座','shaoshan.jpeg');
+Insert into VoiceActor(VName,Gender,Birthday,Debut,Agent,image) VALUES('大原沙耶香',TRUE,'1206','1998','東京俳優生活協同組合','dauan.jpeg');
+Insert into VoiceActor(VName,Gender,Birthday,Debut,Agent,image) VALUES('川澄綾子',TRUE,'0330','1997','大澤事務所','chanchen.jpeg');
+Insert into VoiceActor(VName,Gender,Birthday,Debut,Agent) VALUES('中田讓治',FALSE,'0422','1985','大澤事務所');
+Insert into VoiceActor(VName,Gender,Birthday,Debut,Agent,image) VALUES('宮野真守',FALSE,'0608','2001','株式会社劇団ひまわり','miyano.jpeg');
+Insert into VoiceActor(VName,Gender,Birthday,Debut,Agent,image) VALUES('花澤香菜',TRUE,'0225','2003','大澤事務所','hanazawa.jpg');
+Insert into VoiceActor(VName,Gender,Birthday,Debut,Agent,image) VALUES('關智一',FALSE,'0908','1993','Atomic Monkey','kanzi.jpg');
+Insert into VoiceActor(VName,Gender,Birthday,Debut,Agent,image) VALUES('今井麻美',TRUE,'0516','1999','EARLY WING','imai.jpeg');
+Insert into VoiceActor(VName,Gender,Birthday,Debut,Agent,image) VALUES('山下大輝',FALSE,'0907','2012','ARTSVISION','yamasita.jpeg');
+Insert into VoiceActor(VName,Gender,Birthday,Debut,Agent,image) VALUES('豐崎愛生',TRUE,'1028','2006','Music Ray\'n','fungchi.jpeg');
+Insert into VoiceActor(VName,Gender,Birthday,Debut,Agent,image) VALUES('小松未可子',TRUE,'1111','2010','Hirata Office','siaosung.jpeg');
+Insert into VoiceActor(VName,Gender,Birthday,Debut,Agent,image) VALUES('水瀨祈',TRUE,'1202','2010','AXL ONE','mizu.jpeg');
+Insert into VoiceActor(VName,Gender,Birthday,Debut,image) VALUES('小林裕介',FALSE,'0325','2009','shaolin.jpeg');
+Insert into VoiceActor(VName,Gender,Birthday,Debut,Agent,image) VALUES('高橋李依',TRUE,'0227','2013','81 produce','kaochao.jpg');
+Insert into VoiceActor(VName,Gender,Birthday,Debut,Agent,image) VALUES('內山夕實',TRUE,'1030','2005','大澤事務所','neshan.jpeg');
+Insert into VoiceActor(VName,Gender,Birthday,Debut,Agent,image) VALUES('種田梨沙',TRUE,'0712','2010','大澤事務所','tameda.jpg');
+Insert into VoiceActor(VName,Gender,Birthday,Debut,Agent,image) VALUES('佐倉綾音',TRUE,'0129','2010','I\'m Enterprise','sakura.jpeg');
+Insert into VoiceActor(VName,Gender,Birthday,Debut,Agent,image) VALUES('花江夏樹',FALSE,'0626','2011','Across Entertainment','komica.jpeg');

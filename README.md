@@ -1,6 +1,21 @@
 # Database_Final
 
-## 環境
+## 懶人包
+
+### 安裝
+
+1. 安裝docker
+2. cd mysql
+3. ./setup.sh 建立mysql image with our data
+4. ./run.sh 跑起這個image成一個類似VM的東西
+5. cd ..
+6. npm start
+
+### 清理
+
+1. cd mysql
+2. ./clean.sh 清掉run.sh跑起來的vm
+3. ./remove.sh 清掉setup.sh建立的image
 
 ### mysql
 
@@ -108,6 +123,13 @@ $ DESCRIBE [table]  看出你想要看的table裡面的field資訊
 
 ```
 
+## config內容補充
+
+1. default-character-set [client] 代表的應該是client傳送query字串的data type(如ascii utf8)
+2. utf8分成utf8mb3 , utf8mb4 代表utf8用 3 byte 或 4 byte
+3. collation-server : 猜應該適用於server端字串比對時的一些規則
+4. character-set-server : 代表應該是server端資料儲存的char型態
+
 ## Reference
 
 [express+mysql](https://dotblogs.com.tw/explooosion/2016/07/18/010601)
@@ -135,3 +157,7 @@ $ DESCRIBE [table]  看出你想要看的table裡面的field資訊
 [nodejs mysql insert](https://stackoverflow.com/questions/21779528/insert-into-fails-with-node-mysql)
 
 [nodejs insert Date data](https://www.tutorialspoint.com/How-to-insert-date-object-in-MySQL-using-Python)
+
+[mysql language config intro](https://mariadb.com/kb/en/library/server-system-variables/#character_set_client)
+
+[mysql language config intro](https://dev.mysql.com/doc/refman/5.7/en/charset-server.html)

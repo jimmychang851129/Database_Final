@@ -9,7 +9,7 @@
 -- studio name varchar(30)
 -- Name varchar(30)
 -- people Name var char(21)
--- Agent name varchar(30)
+-- Agent name varchar(60)
 -- SongName varchar(20)
 -- Anime name varchar(30)
 -- Character name varchar(20)
@@ -60,7 +60,7 @@ CREATE TABLE Incharge (			-- double primary key not sure handle correct
 );
 
 CREATE TABLE Agent(
-	AgName varchar(30),
+	AgName varchar(66),
 	Location varchar(90),
 	FoundDate CHAR(5),
 	President varchar(21),
@@ -70,9 +70,9 @@ CREATE TABLE Agent(
 CREATE TABLE VoiceActor(
 	VName varchar(21),	-- voice actor name
 	Gender BOOLEAN,
-	Birthday char(10),
+	Birthday char(5),
 	Debut char(5),
-	Agent varchar(21),
+	Agent varchar(66),
 	image varchar(30),
 	PRIMARY KEY(VName),
 	FOREIGN KEY (Agent) REFERENCES Agent(AgName)
@@ -83,6 +83,7 @@ CREATE TABLE Casting(
 	VName varchar(21),
 	CharacterName varchar(30),	-- Character is keyword !!!
 	ChGender BOOLEAN, 			-- 0 for male 1 for female
+	image varchar(30),			-- store character image
 	PRIMARY KEY(AnimeID,CharacterName),
 	FOREIGN KEY (AnimeID) REFERENCES Animation(AnimeID),
 	FOREIGN KEY (VName) REFERENCES VoiceActor(VName)
