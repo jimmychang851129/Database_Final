@@ -128,3 +128,8 @@ Insert into VoiceActor(VName,Gender,Birthday,Debut,Agent,image) VALUES('內山�
 Insert into VoiceActor(VName,Gender,Birthday,Debut,Agent,image) VALUES('種田梨沙',TRUE,'0712','2010','大澤事務所','tameda.jpg');
 Insert into VoiceActor(VName,Gender,Birthday,Debut,Agent,image) VALUES('佐倉綾音',TRUE,'0129','2010','I\'m Enterprise','sakura.jpeg');
 Insert into VoiceActor(VName,Gender,Birthday,Debut,Agent,image) VALUES('花江夏樹',FALSE,'0626','2011','Across Entertainment','komica.jpeg');
+Insert into VoiceActor(VName,Gender,Birthday,Debut,Agent,image) VALUES('逢坂良太',FALSE,'0802','2011','EARLY WING','ryota.jpeg');
+Insert into VoiceActor(VName,Gender,Birthday,Debut,Agent,image) VALUES('松岡禎丞',FALSE,'0917','2009','I\'m Enterprise','kito.jpeg');
+Insert into VoiceActor(VName,Gender,Birthday,Debut,Agent,image) VALUES('戶松遙',TRUE,'0204','2004','Music Ray\'n','haruka.jpeg');
+Insert into VoiceActor(VName,Gender,Birthday,Debut,Agent,image) VALUES('愛美',TRUE,'1225','2010','響','aimi.jpeg');
+Insert into VoiceActor(VName,Gender,Birthday,Debut,Agent,image) VALUES('相羽あいな',TRUE,'1017','2016','響','aiba.jpeg');

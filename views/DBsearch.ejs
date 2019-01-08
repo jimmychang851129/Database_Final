@@ -29,21 +29,25 @@
             <a class="nav-link" href="technique">技術簡介</a>
           <li class="nav-item active">
           	<a class="nav-link" href="DBsearch">動畫資訊檢索</a>
+          <li class="nav-item">
+            <a class="nav-link" href="VoiceSearch">聲優資訊檢索</a>
+          <li class="nav-item">
+            <a class="nav-link" href="SongSearch">動畫歌曲檢索</a>
         </ul>
       </div>
     </nav>
 
      <div class="container" style="padding-top:50px">
       <h1 style="color:red">動畫搜尋</h1>
-       <form role="form" action="search" method="post" autocomplete="off">
-      搜尋項目 : <input type="text" name="SearchField" disabled="true" value="Anime"> <br>
-      動畫名稱 : <input type="text" name="AnimeName"><br>
+       <form role="form" action="AnimeSearch" method="post" autocomplete="off">
+        搜尋項目 : <input type="text" name="SearchField" readonly value="Anime"> <br>
+        動畫名稱 : <input type="text" name="AnimeName"><br>
       <input type="submit" value="搜尋">
     </form>
     <hr>
     <h1 style="color:red">風格搜尋</h1>
-    <form role="form" action="search" method="post" autocomplete="off">
-       搜尋項目 : <input type="text" name="SearchField" disabled="true" value="Genre"> <br>
+    <form role="form" action="AnimeSearch" method="post" autocomplete="off">
+       搜尋項目 : <input type="text" name="SearchField" readonly value="Genre"> <br>
        <input type="checkbox" name="GenreName" value="1">動作
         <input type="checkbox" name="GenreName" value="2">魔法
         <input type="checkbox" name="GenreName" value="3">奇幻
@@ -53,8 +57,50 @@
         <input type="checkbox" name="GenreName" value="7">戀愛
         <input type="checkbox" name="GenreName" value="8">青春
         <input type="checkbox" name="GenreName" value="9">音樂<br>
-        <input type="submit" name="搜尋">
+        <input type="submit" value="搜尋">
     </form>
+    <hr>
+    <h1 style="color:red">製作公司搜尋</h1>
+    <form role="form" action="AnimeSearch" method="post" autocomplete="off">
+      搜尋項目 : <input type="text" name="SearchField" readonly value="Studio"> <br>
+     動畫公司 :  <select name="StudioName">
+        <option value="0">None</option>
+        <option value="1">Ufotable</option>
+        <option value="2">TYPE-MOON</option>
+        <option value="3">Nitro+</option>
+        <option value="4">MAGES.</option>
+        <option value="5">WHITE FOX</option>
+        <option value="6">A-1 Pictures</option>
+        <option value="7">三次元</option>
+        <option value="8">J.C.STAFF</option>
+        <option value="9">ISSEN</option>
+      </select>
+      <input type="submit" value="搜尋">
+    </form>
+    <hr>
+     <h1 style="color:red">年度動畫搜尋</h1>
+    <form role="form" action="AnimeSearch" method="post" autocomplete="off">
+     搜尋項目 : <input type="text" name="SearchField" readonly value="AnimeDate"> <br>
+     年份 : <input type="text" name="DateName" placeholder="please fill in year format">
+     <input type="submit" value="搜尋">
+   </form>
+   <hr>
+    <table border="1">
+      <tr>
+        <th>圖片
+        <th>動畫
+        <th>製作公司
+        <th>其他
+        <th>角色
+        <th>動畫歌
+      <tr>
+        <td>放圖片
+        <td>刀劍神域
+        <td> <a href="#">A-1 Picture</a>
+        <td>.....
+        <td><a href="#">角色列表(可再發request到後端要資料)</a>
+        <td> <a href="#">動畫歌曲(發request到後端)</a>
+    </table>
     </div>
   </body>
 </html>
