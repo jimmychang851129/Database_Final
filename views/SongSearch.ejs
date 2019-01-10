@@ -45,24 +45,25 @@
             <input type="submit" value="搜尋">
         </form>
     <hr>
-    <h1 style="color:red">歌曲風格搜尋</h1>
+    <h1 style="color:red">動畫歌曲搜尋</h1>
        <form role="form" action="VoiceSearch" method="post" autocomplete="off">
           搜尋項目 : <input type="text" name="SearchField" readonly value="Song"> <br>
-          聲優性別 : <input type="radio" name="Sex">Male <input type="radio" name="Sex">Female <br>
+          動畫性別 : <select name="AniSong">
+            <option value="None">None</option>
+            <option value="1">Fate/Zero</option>
+            <option value="3">Steins;Gate</option>
+            <option value="4">Re:CREATORS</option>
+            <option value="5">Re:ゼロから始める異世界生活</option>
+            <option value="6">四月是你的謊言</option>
+            <option value="7">刀劍神域</option>
+            <option value="9">bang dream</option>
           <input type="submit" value="搜尋">
       </form>
     <hr>
-    <h1 style="color:red">年齡搜尋</h1>
+    <h1 style="color:red">歌手搜尋</h1>
        <form role="form" action="VoiceSearch" method="post" autocomplete="off">
-          搜尋項目 : <input type="text" name="SearchField" readonly value="Voice"> <br>
-          年齡 : <select name="VoiceAge">
-            <option value="None">None</option>
-            <option value="20">10-20</option>
-            <option value="30">20-30</option>
-            <option value="40">30-40</option>
-            <option value="50">40-50</option>
-            <option value="60">50-</option>
-          </select>
+          搜尋項目 : <input type="text" name="SearchField" readonly value="Song"> <br>
+          歌手名稱 : <input type="text" name="Singer">
           <input type="submit" value="搜尋">
       </form>
     <hr>
