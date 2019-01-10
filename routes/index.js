@@ -9,9 +9,19 @@ const connection = mysql.createConnection({
   user     : 'jimmy',
   password : 'jimmy',
   database : 'Anime',
+  port     : '3306',
   insecureAuth : true
 });
 
+// check connection error
+connection.connect(function(err) {
+  if (err) {
+    console.error('error connecting: ' + err.stack);
+    return;
+  }
+ 
+  console.log('connected as id ' + connection.threadId);
+});
 // sample query
 
 // var post = {SdName:'TROYCA',FoundDate:'2000-10-01',President:'長野敏之'}
