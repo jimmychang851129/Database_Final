@@ -133,3 +133,35 @@ Insert into VoiceActor(VName,Gender,Birthday,Debut,Agent,image) VALUES('松岡�
 Insert into VoiceActor(VName,Gender,Birthday,Debut,Agent,image) VALUES('戶松遙',TRUE,'0204','2004','Music Ray\'n','haruka.jpeg');
 Insert into VoiceActor(VName,Gender,Birthday,Debut,Agent,image) VALUES('愛美',TRUE,'1225','2010','響','aimi.jpeg');
 Insert into VoiceActor(VName,Gender,Birthday,Debut,Agent,image) VALUES('相羽あいな',TRUE,'1017','2016','響','aiba.jpeg');
+
+-- Casting
+Insert into Casting(AnimeID,VName,CharacterName,ChGender,image) VALUES(1,'小山力也','衛宮切嗣',0,'emiya.jpg');
+Insert into Casting(AnimeID,VName,CharacterName,ChGender,image) VALUES(1,'大原沙耶香','アイリスフィール・フォン・アインツベルン',1,'Ailisifeier.jpg');
+Insert into Casting(AnimeID,VName,CharacterName,ChGender,image) VALUES(1,'川澄綾子','Saber',1,'saber.jpg')
+Insert into Casting(AnimeID,VName,CharacterName,ChGender,image) VALUES(1,'中田讓治','言峰綺禮',0,'kirei_smirk.jpg')
+Insert into Casting(AnimeID,VName,CharacterName,ChGender,image) VALUES(2,'宮野真守','岡部倫太郎',0,'taro.jpg')
+Insert into Casting(AnimeID,VName,CharacterName,ChGender,image) VALUES(2,'花澤香菜','椎名まゆり',1,'duduru.jpg')
+Insert into Casting(AnimeID,VName,CharacterName,ChGender,image) VALUES(2,'關智一','橋田至',0,'hashi.jpg')
+Insert into Casting(AnimeID,VName,CharacterName,ChGender,image) VALUES(2,'今井麻美','牧瀨紅莉栖',1,'red.jpg')
+Insert into Casting(AnimeID,VName,CharacterName,ChGender,image) VALUES(3,'山下大輝','水篠颯太',0,'satai.jpg')
+Insert into Casting(AnimeID,VName,CharacterName,ChGender,image) VALUES(3,'豐崎愛生','アルタイル',1,'arutairu.jpg')
+Insert into Casting(AnimeID,VName,CharacterName,ChGender,image) VALUES(3,'小松未可子','セレジア・ユピティリア',1,'selesia.jpg')
+Insert into Casting(AnimeID,VName,CharacterName,ChGender,image) VALUES(3,'水瀨祈','メテオラ・エスターライヒ',1,'Meteora_anime.jpg')
+Insert into Casting(AnimeID,VName,CharacterName,ChGender,image) VALUES(4,'小林裕介','菜月昴',0,'Natsuki_Subaru_1.jpg')
+Insert into Casting(AnimeID,VName,CharacterName,ChGender,image) VALUES(4,'高橋李依','エミリア',1,'emiriya.png')
+Insert into Casting(AnimeID,VName,CharacterName,ChGender,image) VALUES(4,'水瀨祈','レム',1,'Rem_Anime.png')
+Insert into Casting(AnimeID,VName,CharacterName,ChGender,image) VALUES(4,'內山夕實','パック',1,'paku.jpg')
+Insert into Casting(AnimeID,VName,CharacterName,ChGender,image) VALUES(5,'阿部敦','上条當麻',0,'touma1.jpg')
+Insert into Casting(AnimeID,VName,CharacterName,ChGender,image) VALUES(5,'井口裕香','INDEX',1,'index.png')
+Insert into Casting(AnimeID,VName,CharacterName,ChGender,image) VALUES(5,'佐藤利奈','御坂美琴',1,'misakamikoto.jpg')
+Insert into Casting(AnimeID,VName,CharacterName,ChGender,image) VALUES(5,'岡本信彥','一方通行',0,'accelerator.jpg')
+Insert into Casting(AnimeID,VName,CharacterName,ChGender,image) VALUES(6,'種田梨沙','宮園薰',1,'kaoru.jpg')
+Insert into Casting(AnimeID,VName,CharacterName,ChGender,image) VALUES(6,'佐倉綾音','澤部椿',1,'saki.jpg')
+Insert into Casting(AnimeID,VName,CharacterName,ChGender,image) VALUES(6,'花江夏樹','有馬公生',0,'arima.jpg')
+Insert into Casting(AnimeID,VName,CharacterName,ChGender,image) VALUES(6,'逢坂良太','渡亮太',0,'ta.jpg')
+Insert into Casting(AnimeID,VName,CharacterName,ChGender,image) VALUES(7,'松岡禎丞','桐谷和人',0,'kirito.png')
+Insert into Casting(AnimeID,VName,CharacterName,ChGender,image) VALUES(8,'松岡禎丞','桐谷和人',0,'kirito.png')
+Insert into Casting(AnimeID,VName,CharacterName,ChGender,image) VALUES(7,'戶松遙','亞絲娜',1,'asuna.jpg')
+Insert into Casting(AnimeID,VName,CharacterName,ChGender,image) VALUES(8,'戶松遙','亞絲娜',1,'asuna.jpg')
+Insert into Casting(AnimeID,VName,CharacterName,ChGender,image) VALUES(9,'愛美','戶山香澄',1,'kasumi.jpg')
+Insert into Casting(AnimeID,VName,CharacterName,ChGender,image) VALUES(9,'相羽あいな','湊友希那',1,'minato.jpg')
