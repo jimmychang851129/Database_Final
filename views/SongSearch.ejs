@@ -39,16 +39,16 @@
 
      <div class="container" style="padding-top:50px">
       <h1 style="color:red">歌曲搜尋</h1>
-       <form role="form" action="VoiceSearch" method="post" autocomplete="off">
-            搜尋項目 : <input type="text" name="SearchField" readonly value="Song"> <br>
-            歌曲名稱 : <input type="text" name="VoiceName"><br>
+       <form role="form" action="SongSearch" method="post" autocomplete="off">
+            搜尋項目 : <input type="text" name="SearchField" readonly value="SongName"> <br>
+            歌曲名稱 : <input type="text" name="SongName"><br>
             <input type="submit" value="搜尋">
         </form>
     <hr>
     <h1 style="color:red">動畫歌曲搜尋</h1>
-       <form role="form" action="VoiceSearch" method="post" autocomplete="off">
-          搜尋項目 : <input type="text" name="SearchField" readonly value="Song"> <br>
-          動畫性別 : <select name="AniSong">
+       <form role="form" action="SongSearch" method="post" autocomplete="off">
+          搜尋項目 : <input type="text" name="SearchField" readonly value="SongAnime"> <br>
+          動畫名稱 : <select name="AniSong">
             <option value="None">None</option>
             <option value="1">Fate/Zero</option>
             <option value="3">Steins;Gate</option>
@@ -61,8 +61,8 @@
       </form>
     <hr>
     <h1 style="color:red">歌手搜尋</h1>
-       <form role="form" action="VoiceSearch" method="post" autocomplete="off">
-          搜尋項目 : <input type="text" name="SearchField" readonly value="Song"> <br>
+       <form role="form" action="SongSearch" method="post" autocomplete="off">
+          搜尋項目 : <input type="text" name="SearchField" readonly value="SongSinger"> <br>
           歌手名稱 : <input type="text" name="Singer">
           <input type="submit" value="搜尋">
       </form>

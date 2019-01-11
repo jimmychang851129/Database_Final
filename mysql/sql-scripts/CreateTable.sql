@@ -29,7 +29,7 @@ CREATE TABLE Animation (
 	Episode SMALLINT,
 	Season SMALLINT NOT NULL,
 	Rating SMALLINT,
-	AnimeDate CHAR(7),					-- date
+	AnimeDate CHAR(5),					-- date
 	sdName varchar(60) NOT NULL,	-- studio name
 	image varchar(60),
 	PRIMARY KEY(AnimeID),
