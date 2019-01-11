@@ -208,12 +208,11 @@ router.post('/VoiceSearch',function(req,res,next){
 
 // maybe need a singer details pages or api
 router.post('/SongSearch',function(req,res,next){
-	console.log(req.body.SearchField)
 	if(req.body.SearchField == 'SongName'){
 		var SongName = req.body.SongName.trim();
 		console.log("SongName = ",SongName)
-		var RetField = ['T.SgName','T.Author','T.Composer','T.Singer','T.Type','A.AName','A.image'];
-		var queryString = "SELECT " + RetField.join() + " FROM ThemeSong as T join Animation as A on T.AnimeID = A.AnimeID WHERE T.SgName = ?"
+		var RetField = ['T.SgName','T.Author','T.Composer','T.Singer','T.Type','A.AName','S.image'];
+		var queryString = "SELECT " + RetField.join() + " FROM ThemeSong as T join Animation as A on T.AnimeID = A.AnimeID join Singer as S on T.Singer = S.VName WHERE T.SgName = ?"
 		connection.query(queryString , SongName , (err,results,fields)=>{
 			if(results){
 				console.log("result = ",results);
@@ -225,12 +224,59 @@ router.post('/SongSearch',function(req,res,next){
 					else{
 						results[i].Type = "Ending"
 					}
-					results[i].image = "images/anime/" + results[i].image;
+					results[i].image = "images/singer/" + results[i].image;
 				}
 				res.send(results)
 			}
 			else{
-				output = {AnimeID : 'None'}
+				output = {SgName : 'None'}
+				res.send(output);
+			}
+		})
+	}
+	if(req.body.SearchField == 'SongAnime'){
+		var AniSong = req.body.AniSong;
+		var RetField = ['A.AName','T.SgName as SongName','T.Author','T.Composer','T.Type','S.VName as SingerName','S.image']
+		var queryString = "SELECT " + RetField.join() + " FROM ThemeSong as T join Singer as S on T.Singer = S.VName join Animation as A on T.AnimeID = A.AnimeID WHERE A.AnimeID = ?"
+		connection.query(queryString , AniSong , (err,results,fields)=>{
+			if(results){
+				for(var i = 0 ; i < results.length ; i++){
+					if(results[i].Type === 0){
+						results[i].Type = "Opening"
+					}
+					else{
+						results[i].Type = "Ending"
+					}
+					results[i].image = "images/singer/" + results[i].image;
+				}
+				res.send(results)
+			}
+			else{
+				output = {SgName : 'None'}
+				res.send(output);
+			}
+		})
+	}
+	if(req.body.SearchField == 'SongSinger'){
+		var Singer = req.body.Singer.trim();
+		console.log("Singer = ",Singer)
+		var RetField = ['A.AName','T.SgName as SongName','T.Author','T.Composer','T.type','S.VName as SingerName','S.image','S.gender','S.Debut','S.Agent']
+		var queryString = "SELECT " + RetField.join() + " FROM Singer as S join ThemeSong as T on S.VName = T.Singer join Animation as A on T.AnimeID = A.AnimeID Where T.Singer = ?"
+		connection.query(queryString , Singer , (err,results,fields)=>{
+			if(results){
+				for(var i = 0 ; i < results.length ; i++){
+					if(results[i].Type === 0){
+						results[i].Type = "Opening"
+					}
+					else{
+						results[i].Type = "Ending"
+					}
+					results[i].image = "images/singer/" + results[i].image;
+				}
+				res.send(results);
+			}
+			else{
+				output = {SgName : 'None'}
 				res.send(output);
 			}
 		})

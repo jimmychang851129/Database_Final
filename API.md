@@ -245,9 +245,10 @@ SongName : 動畫歌曲名稱
 
 output : 
 AName 為動畫名稱
-image為動畫圖片
+image為歌手圖片
 Type為opening or ending
 ['SgName','Author','Composer','Singer','Type','AName','image'];
+['SgName','Author','Composer','Singer','Type','AName','image']
 
 Example : 
 input : 
@@ -255,16 +256,70 @@ SearchField : SongName
 SongName : 光るなら
 
 output : 
-[{"SgName":"光るなら","Author":"Goose house","Composer":"Goose house","Singer":"Goose house","Type":"Opening","AName":"四月是你的謊言","image":"images/anime/april.jpg"}]
+[{"SgName":"光るなら","Author":"Goose house","Composer":"Goose house","Singer":"Goose house","Type":"Opening","AName":"四月是你的謊言","image":"images/singer/goosehouse.jpg"}]
 ```
 
+### 歌曲搜尋
+
+#### API
+
+- action : SongSearch
+- method : post
+
+#### input/output
+
+```
+input : 
+SearchField : SongAnime
+SongName : 動畫(1~9分別代表動畫的AnimeID)
+
+output :
+AName為動畫名稱
+SongName 哥的名稱
+type為opening or ending
+image為歌手圖片
+['AName','SongName','Author','Composer','type','SingerName','image']
+
+Example :
+input : 
+SearchField : SongAnime
+SongName : 9(bang dream)
+output : 
+[{"AName":"bang dream","SongName":"BRAVE JEWEL","Author":"織田あすか","Composer":"上松範康","Type":"Opening","SingerName":"Roselia","image":"images/singer/roselia.jpg"},
+{"AName":"bang dream","SongName":"キズナミュージック","Author":"中村航","Composer":"藤永龍太郎","Type":"Opening","SingerName":"Poppin‘Party","image":"images/singer/popping.jpg"}]
+```
+### 歌手搜尋
+
+#### API
+
+- action : SongSearch
+- method : post
+
+#### input/output
+
+```
+input : 
+SearchField : SongSinger
+SongName : 歌手名稱
+
+output :
+AName : 動畫名稱
+type : opening or ending
+image : 歌手圖片
+['AName','SongName','Author','Composer','type','SingerName',image','gender','Debut','Agent']
+
+Example :
+input : 
+SearchField : SongSinger
+Singer : LiSA
+output:
+[{"AName":"刀劍神域","SongName":"crossing field","Author":"渡邊翔","Composer":"渡邊翔","type":0,"SingerName":"LiSA","image":"images/singer/lisa.png","gender":1,"Debut":"2010","Agent":"SACRA MUSIC","Type":"Ending"},
+{"AName":"Fate/Zero","SongName":"oath Sign","Author":"渡邊翔","Composer":"渡邊翔","type":0,"SingerName":"LiSA","image":"images/singer/lisa.png","gender":1,"Debut":"2010","Agent":"SACRA MUSIC","Type":"Ending"}]
+```
+
+
 ### 其他
-
-動畫歌曲搜尋
-歌手搜尋
-還沒做~
-
-Details的API也還沒做完
+Details的API還沒做完
 
 ## 問題
 
