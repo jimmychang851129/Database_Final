@@ -1,8 +1,80 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
-
 a {
   color: #00B7FF;
+}
+body {
+	background: url(../images/computer.jpg) no-repeat center;
+	background-size: cover;
+}
+table { 
+  border:1px solid #000; 
+  font-family: 微軟正黑體; 
+  font-size:16px; 
+  width:100%;
+  border:1px solid black;
+  text-align:center;
+  border-collapse:collapse;
+} 
+th { 
+  background-color: #009FCC;
+  padding:10px;
+  border:1px solid #000;
+  color:#fff;
+} 
+td { 
+  color: #009FCC;
+  border:1px solid #000;
+  background-color: black;
+  padding:5px;
+} 
+.searchType {
+	font-family: DFKai-sb;
+}
+h1.searchType{
+	font-size: 40pt;
+	text-align: center;
+	color: #6acfa2;
+	text-shadow: 0px 0px 3px black;
+	cursor: pointer;
+	background: rgba(0%, 0%, 0%, 0.4);
+}
+h1.searchType:hover{
+	color: white;
+	text-shadow: 0px 0px 3px #6acfa2;
+	background: rgba(0%, 0%, 0%, 0.9);
+}
+.foldForm{
+	display: none;
+	text-align: center;
+}
+input{
+	padding:5px 15px;
+	border:2px black solid;
+	border-radius: 5px;
+}
+input.lockedInput{
+	cursor: not-allowed;
+	background: #D8D8D8;
+}
+.lbl{
+	font-weight: bold;
+	color: white;
+	text-shadow: 2px 2px 15px black;
+}
+.submit{
+	background: #0080FF;
+	color: white;
+}
+.submit:hover{
+	color: #6acfa2;
+	border: 2px white solid;
+}
+.chkbx{
+	color: #0080FF;
+	font-weight: bold;
+	background: black;
+	text-shadow: 2px 2px 35px black;
+}
+.fitImg{
+	max-height:100%;
+	max-width:100%;
 }

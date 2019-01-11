@@ -11,16 +11,26 @@ Insert into Studio(SdName,FoundDate,Location,President) Values('J.C.STAFF','1986
 Insert into Studio(SdName,FoundDate,Location,President) Values('ISSEN','1990','日本東京都世田谷區若林一丁目','奧野敏聰');
 
 -- Anime
-Insert into Animation(AnimeID,AName,Episode,Season,Rating,AnimeDate,sdName,image) VALUES(1,'Fate/Zero',25,1,10,'201110','ufotable','fz.jpeg');
-Insert into Animation(AnimeID,AName,Episode,Season,Rating,AnimeDate,sdName,image) VALUES(2,'Steins;Gate',25,1,9,'201104','WHITE FOX','steingate.jpeg');
-Insert into Animation(AnimeID,AName,Episode,Season,Rating,AnimeDate,sdName,image) VALUES(3,'Re:CREATORS',22,1,9,'201704','TROYCA','recreate.jpeg');
-Insert into Animation(AnimeID,AName,Episode,Season,Rating,AnimeDate,sdName,image) VALUES(4,'Re:ゼロから始める異世界生活',25,1,9,'201604','WHITE FOX','rezero.jpeg');
-Insert into Animation(AnimeID,AName,Episode,Season,Rating,AnimeDate,sdName,image) VALUES(5,'とある魔術の禁書目録',24,1,8,'200810','J.C.STAFF','index.jpg');
-Insert into Animation(AnimeID,AName,Episode,Season,Rating,AnimeDate,sdName,image) VALUES(6,'四月是你的謊言',22,1,8,'201410','A-1 Pictures','april.jpg');
-Insert into Animation(AnimeID,AName,Episode,Season,Rating,AnimeDate,sdName,image) VALUES(7,'刀劍神域',25,1,9,'201207','A-1 Pictures','sao_s1.jpg');
-Insert into Animation(AnimeID,AName,Episode,Season,Rating,AnimeDate,sdName,image) VALUES(8,'刀劍神域',24,2,7,'201407','A-1 Pictures','sao_s2.jpg');
-Insert into Animation(AnimeID,AName,Episode,Season,Rating,AnimeDate,sdName,image) VALUES(9,'bang dream',13,2,10,'201901','三次元','bgd_s2.jpeg');
+Insert into Animation(AnimeID,AName,Episode,Season,Rating,AnimeDate,sdName,image) VALUES(1,'Fate/Zero',25,1,10,'2011','ufotable','fz.jpeg');
+Insert into Animation(AnimeID,AName,Episode,Season,Rating,AnimeDate,sdName,image) VALUES(2,'Steins;Gate',25,1,9,'2011','WHITE FOX','steingate.jpeg');
+Insert into Animation(AnimeID,AName,Episode,Season,Rating,AnimeDate,sdName,image) VALUES(3,'Re:CREATORS',22,1,9,'2017','TROYCA','recreate.jpeg');
+Insert into Animation(AnimeID,AName,Episode,Season,Rating,AnimeDate,sdName,image) VALUES(4,'Re:ゼロから始める異世界生活',25,1,9,'2016','WHITE FOX','rezero.jpeg');
+Insert into Animation(AnimeID,AName,Episode,Season,Rating,AnimeDate,sdName,image) VALUES(5,'とある魔術の禁書目録',24,1,8,'2008','J.C.STAFF','index.jpg');
+Insert into Animation(AnimeID,AName,Episode,Season,Rating,AnimeDate,sdName,image) VALUES(6,'四月是你的謊言',22,1,8,'2014','A-1 Pictures','april.jpg');
+Insert into Animation(AnimeID,AName,Episode,Season,Rating,AnimeDate,sdName,image) VALUES(7,'刀劍神域',25,1,9,'2012','A-1 Pictures','sao_s1.jpg');
+Insert into Animation(AnimeID,AName,Episode,Season,Rating,AnimeDate,sdName,image) VALUES(8,'刀劍神域',24,2,7,'2014','A-1 Pictures','sao_s2.jpg');
+Insert into Animation(AnimeID,AName,Episode,Season,Rating,AnimeDate,sdName,image) VALUES(9,'bang dream',13,2,10,'2019','三次元','bgd_s2.jpeg');
 
+-- genreName
+Insert into GenreName(Genre,Gtype) VALUES(1,'動作');
+Insert into GenreName(Genre,Gtype) VALUES(2,'魔法');
+Insert into GenreName(Genre,Gtype) VALUES(3,'奇幻');
+Insert into GenreName(Genre,Gtype) VALUES(4,'懸疑');
+Insert into GenreName(Genre,Gtype) VALUES(5,'冒險');
+Insert into GenreName(Genre,Gtype) VALUES(6,'校園');
+Insert into GenreName(Genre,Gtype) VALUES(7,'戀愛');
+Insert into GenreName(Genre,Gtype) VALUES(8,'青春');
+Insert into GenreName(Genre,Gtype) VALUES(9,'音樂');
 
 -- genre
 Insert into Genre(AnimeID,Genre) VALUES(1,1);

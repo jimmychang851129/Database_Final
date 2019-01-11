@@ -29,18 +29,25 @@ CREATE TABLE Animation (
 	Episode SMALLINT,
 	Season SMALLINT NOT NULL,
 	Rating SMALLINT,
-	AnimeDate CHAR(7),					-- date
+	AnimeDate CHAR(5),					-- date
 	sdName varchar(60) NOT NULL,	-- studio name
 	image varchar(60),
 	PRIMARY KEY(AnimeID),
 	FOREIGN KEY (sdName) REFERENCES Studio(SdName)
 );
 
+CREATE TABLE GenreName(
+	Genre INTEGER,
+	Gtype varchar(10),
+	PRIMARY KEY(Genre)
+);
+
 CREATE TABLE Genre(		-- double  primary key
 	AnimeID INTEGER,
 	Genre INTEGER,
 	PRIMARY KEY(AnimeID,Genre),
-	FOREIGN KEY (AnimeID) REFERENCES Animation(AnimeID)
+	FOREIGN KEY (AnimeID) REFERENCES Animation(AnimeID),
+	FOREIGN KEY (Genre) REFERENCES GenreName(Genre)
 );
 
 CREATE TABLE Staff (

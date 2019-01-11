@@ -1,106 +1,238 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>動畫資訊檢索系統</title>
-      <meta charset="utf-8">
-      <link rel='stylesheet' href='/stylesheets/bootstrap.min.css'/>
-	    <script src="/javascripts/jquery.min.js"></script>
-	    <script src="/javascripts/bootstrap.min.js"></script>
-	    <style type="text/css">
-	    .navbar{
-	      left:10%;
-	      width:80%;
-	    }
-	    </style>
-  </head>
-  <body>
-  	    <nav class="navbar navbar-toggleable-md navbar-inverse bg-primary navbar-fixed">  
-      <a class="navbar-brand" href="#">動畫資訊檢索系統</a>
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="/">About</a>
-          <li class="nav-item">
-            <a class="nav-link" href="author">作者介紹</a>
-          <li class="nav-item ">
-            <a class="nav-link" href="technique">技術簡介</a>
-          <li class="nav-item active">
-          	<a class="nav-link" href="DBsearch">動畫資訊檢索</a>
-          <li class="nav-item">
-            <a class="nav-link" href="VoiceSearch">聲優資訊檢索</a>
-          <li class="nav-item">
-            <a class="nav-link" href="SongSearch">動畫歌曲檢索</a>
-        </ul>
-      </div>
-    </nav>
+<head>
+  <title>動畫資訊檢索系統</title>
+  <meta charset="utf-8">
+  <link rel='stylesheet' href='/stylesheets/bootstrap.min.css'/>
+  <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+  <script src="/javascripts/jquery.min.js"></script>
+  <script src="/javascripts/bootstrap.min.js"></script>
+</head>
+<body>
+  <div id='bar'></div>
 
-     <div class="container" style="padding-top:50px">
-      <h1 style="color:red">動畫搜尋</h1>
-       <form role="form" action="AnimeSearch" method="post" autocomplete="off">
-        搜尋項目 : <input type="text" name="SearchField" readonly value="Anime"> <br>
-        動畫名稱 : <input type="text" name="AnimeName"><br>
-      <input type="submit" value="搜尋">
-    </form>
-    <hr>
-    <h1 style="color:red">風格搜尋</h1>
-    <form role="form" action="AnimeSearch" method="post" autocomplete="off">
-       搜尋項目 : <input type="text" name="SearchField" readonly value="Genre"> <br>
-       <input type="checkbox" name="GenreName" value="1">動作
-        <input type="checkbox" name="GenreName" value="2">魔法
-        <input type="checkbox" name="GenreName" value="3">奇幻
-        <input type="checkbox" name="GenreName" value="4">懸疑
-        <input type="checkbox" name="GenreName" value="5">冒險
-        <input type="checkbox" name="GenreName" value="6">校園
-        <input type="checkbox" name="GenreName" value="7">戀愛
-        <input type="checkbox" name="GenreName" value="8">青春
-        <input type="checkbox" name="GenreName" value="9">音樂<br>
-        <input type="submit" value="搜尋">
-    </form>
-    <hr>
-    <h1 style="color:red">製作公司搜尋</h1>
-    <form role="form" action="AnimeSearch" method="post" autocomplete="off">
-      搜尋項目 : <input type="text" name="SearchField" readonly value="Studio"> <br>
-     動畫公司 :  <select name="StudioName">
-        <option value="0">None</option>
-        <option value="1">Ufotable</option>
-        <option value="2">TYPE-MOON</option>
-        <option value="3">Nitro+</option>
-        <option value="4">MAGES.</option>
-        <option value="5">WHITE FOX</option>
-        <option value="6">A-1 Pictures</option>
-        <option value="7">三次元</option>
-        <option value="8">J.C.STAFF</option>
-        <option value="9">ISSEN</option>
-      </select>
-      <input type="submit" value="搜尋">
-    </form>
-    <hr>
-     <h1 style="color:red">年度動畫搜尋</h1>
-    <form role="form" action="AnimeSearch" method="post" autocomplete="off">
-     搜尋項目 : <input type="text" name="SearchField" readonly value="AnimeDate"> <br>
-     年份 : <input type="text" name="DateName" placeholder="please fill in year format">
-     <input type="submit" value="搜尋">
-   </form>
-   <hr>
-    <table border="1">
+  <div class="container" style="padding-top:50px">
+    <div class="row">
+      <div class="col-sm-6 col-md-3">
+        <h1 class="searchType" id="srch1">動畫搜尋</h1>
+        <div class="foldForm" id="fold1">
+        <form id="byName" role="form" action="AnimeSearch" method="post" autocomplete="off">
+          <label class="lbl">搜尋項目</label> 
+          <input class="lockedInput" type="text" name="SearchField" readonly value="Anime"> <br><br>
+          <label class="lbl">動畫名稱</label> 
+          <input type="text" name="AnimeName"><br>
+          <input class="submit" type="submit" value="搜尋">
+        </form>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-md-3">
+        <h1 class="searchType" id="srch2">風格搜尋</h1>
+        <div class="foldForm" id="fold2">
+        <form id="byGenre" role="form" action="AnimeSearch" method="post" autocomplete="off">
+           <label class="lbl">搜尋項目</label> 
+           <input class="lockedInput" type="text" name="SearchField" readonly value="Genre"> <br>
+            <input type="checkbox" name="GenreName" value="1"><span class="chkbx">動作</span>
+            <input type="checkbox" name="GenreName" value="2"><span class="chkbx">魔法</span>
+            <input type="checkbox" name="GenreName" value="3"><span class="chkbx">奇幻</span>
+            <input type="checkbox" name="GenreName" value="4"><span class="chkbx">懸疑</span>
+            <input type="checkbox" name="GenreName" value="5"><span class="chkbx">冒險</span>
+            <input type="checkbox" name="GenreName" value="6"><span class="chkbx">校園</span>
+            <input type="checkbox" name="GenreName" value="7"><span class="chkbx">戀愛</span>
+            <input type="checkbox" name="GenreName" value="8"><span class="chkbx">青春</span>
+            <input type="checkbox" name="GenreName" value="9"><span class="chkbx">音樂</span><br>
+          <input class="submit" type="submit" value="搜尋">
+        </form>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-md-3">
+        <h1 class="searchType" id="srch3">製作公司搜尋</h1>
+        <div class="foldForm" id="fold3">
+        <form id="byStudio" role="form" action="AnimeSearch" method="post" autocomplete="off">
+          <label class="lbl">搜尋項目</label> 
+          <input class="lockedInput" type="text" name="SearchField" readonly value="Studio"> <br><br>
+         <label class="lbl">動畫公司</label> <br> 
+          <select name="StudioName">
+            <option value="0">None</option>
+            <option value="1">Ufotable</option>
+            <option value="2">TYPE-MOON</option>
+            <option value="3">Nitro+</option>
+            <option value="4">MAGES.</option>
+            <option value="5">WHITE FOX</option>
+            <option value="6">A-1 Pictures</option>
+            <option value="7">三次元</option>
+            <option value="8">J.C.STAFF</option>
+            <option value="9">ISSEN</option>
+          </select>
+          <input class="submit" type="submit" value="搜尋">
+        </form>
+      </div>
+      </div>
+
+    <div class="col-sm-6 col-md-3" style="align-content: center;">
+      <h1 class="searchType" id="srch4">年度動畫搜尋</h1>
+      <div class="foldForm" id="fold4">
+      <form id="byDate" role="form" action="AnimeSearch" method="post" autocomplete="off">
+       <label class="lbl">搜尋項目</label> 
+       <input class="lockedInput" type="text" name="SearchField" readonly value="AnimeDate"> <br><br>
+       <label class="lbl">年份</label> <br> 
+       <input type="text" name="DateName" placeholder="YYYY">
+       <input class="submit" type="submit" value="搜尋">
+      </form>
+      </div>
+    </div>
+  </div>
+  <hr>
+   <div class="row">
+    <div class="col">
+    <table id="result" border="1">
+      <thead>
       <tr>
-        <th>圖片
+        <th>劇照
         <th>動畫
         <th>製作公司
-        <th>其他
-        <th>角色
-        <th>動畫歌
-      <tr>
-        <td>放圖片
-        <td>刀劍神域
-        <td> <a href="#">A-1 Picture</a>
-        <td>.....
-        <td><a href="#">角色列表(可再發request到後端要資料)</a>
-        <td> <a href="#">動畫歌曲(發request到後端)</a>
+        <th>時間
+        <th>集數
+        <th>季度
+        <th>評分
+        <th>類型
+      </thead>
+      <tbody></tbody>
+      <p id="addResult">
     </table>
     </div>
-  </body>
+    </div>
+  </div>
+</body>
 </html>
+<script src="/javascripts/general.js"></script>
+<script>
+  for(let i=1;i<=4;i++){
+    $("#srch"+i).click(function(){
+      $("#fold"+i).slideToggle();
+    })
+  }
+  // FORMS
+  $(document).ready(function() {
+    // handle anime searching
+    var sendform = $("#byName");
+    // clear previous records
+    sendform.find(".submit").on("click", function() {
+      $("#result").find("tbody").html("");
+    })
+    // AJAX!! submit animesearch
+    sendform.submit(function(e) {
+      $.ajax({
+        type: sendform.attr('method'),
+        url: sendform.attr('action'),
+        data: sendform.serialize(),
+        success: function(data)
+        {
+          var object = JSON.parse(data);
+          
+          // display all animes in JSON array
+          for(var num = 0; num < object.length; num++){
+            var row = object[num];
+            var exactRow = '<tr><td style="width:250px; height:250px;"><img id="img'+num+'" class="fitImg">'+'<td>'+row.AName+'<td>'+row.sdName+'<td>'+row.AnimeDate+'<td>'+row.Episode+'<td>'+row.Season+'<td>'+row.Rating+'<td>'+row.Gtype;
+            $("#result").find("tbody").append(exactRow);
+            $("#img"+num).attr("src", row.image);
+          }
+        }
+      });
+      e.preventDefault();
+    });
+
+
+
+    // handle genre searching
+    var sendform1 = $("#byGenre");
+    // clear previous records
+    sendform1.find(".submit").on("click", function() {
+      $("#result").find("tbody").html("");
+    })
+    // AJAX!! submit animesearch
+    sendform1.submit(function(e) {
+      $.ajax({
+        type: sendform1.attr('method'),
+        url: sendform1.attr('action'),
+        data: sendform1.serialize(),
+        success: function(data)
+        {
+          var object = JSON.parse(data);
+          
+          // display all animes in JSON array
+          for(var num = 0; num < object.length; num++){
+            var row = object[num];
+            var exactRow = '<tr><td style="width:250px; height:250px;"><img id="img'+num+'" class="fitImg">'+'<td>'+row.AName+'<td>'+row.sdName+'<td>'+row.AnimeDate+'<td>'+row.Episode+'<td>'+row.Season+'<td>'+row.Rating+'<td>'+row.Genre;
+            $("#result").find("tbody").append(exactRow);
+            $("#img"+num).attr("src", row.image);
+          }
+        }
+      });
+      e.preventDefault();
+    });
+
+
+
+    // handle studio searching
+    var sendform2 = $("#byStudio");
+    // clear previous records
+    sendform2.find(".submit").on("click", function() {
+      $("#result").find("tbody").html("");
+    })
+    // AJAX!! submit studiosearch
+    sendform2.submit(function(e) {
+      console.log(sendform2.serialize())
+      $.ajax({
+        type: sendform2.attr('method'),
+        url: sendform2.attr('action'),
+        data: sendform2.serialize(),
+        success: function(data)
+        {
+          var object = JSON.parse(data);
+          console.log(object)
+          // display all animes in JSON array
+          for(var num = 0; num < object.length; num++){
+            var row = object[num];
+            var exactRow = '<tr><td style="width:250px; height:250px;"><img id="img'+num+'" class="fitImg">'+'<td>'+row.AName+'<td>'+row.sdName+'<td>'+row.AnimeDate+'<td>'+row.Episode+'<td>'+row.Season+'<td>'+row.Rating+'<td>'+row.Gtype;
+            $("#result").find("tbody").append(exactRow);
+            $("#img"+num).attr("src", row.image);
+          }
+        }
+      });
+      e.preventDefault();
+    });
+
+
+
+    // handle year searching
+    var sendform3 = $("#byDate");
+    // clear previous records
+    sendform3.find(".submit").on("click", function() {
+      $("#result").find("tbody").html("");
+    })
+    // AJAX!! submit datesearch
+    sendform3.submit(function(e) {
+      console.log(sendform3.serialize())
+      $.ajax({
+        type: sendform3.attr('method'),
+        url: sendform3.attr('action'),
+        data: sendform3.serialize(),
+        success: function(data)
+        {
+          var object = JSON.parse(data);
+          console.log(object)
+          // display all animes in JSON array
+          for(var num = 0; num < object.length; num++){
+            var row = object[num];
+            var exactRow = '<tr><td style="width:250px; height:250px;"><img id="img'+num+'" class="fitImg">'+'<td>'+row.AName+'<td>'+row.sdName+'<td>'+row.AnimeDate+'<td>'+row.Episode+'<td>'+row.Season+'<td>'+row.Rating+'<td>'+row.Gtype;
+            $("#result").find("tbody").append(exactRow);
+            $("#img"+num).attr("src", row.image);
+          }
+        }
+      });
+      e.preventDefault();
+    });
+  });
+</script>
