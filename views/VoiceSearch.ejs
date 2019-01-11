@@ -40,31 +40,36 @@
      <div class="container" style="padding-top:50px">
       <h1 style="color:red">聲優搜尋</h1>
        <form role="form" action="VoiceSearch" method="post" autocomplete="off">
-            搜尋項目 : <input type="text" name="SearchField" readonly value="Voice"> <br>
+            搜尋項目 : <input type="text" name="SearchField" readonly value="VoiceName"> <br>
             聲優名稱 : <input type="text" name="VoiceName"><br>
             <input type="submit" value="搜尋">
         </form>
     <hr>
     <h1 style="color:red">性別搜尋</h1>
        <form role="form" action="VoiceSearch" method="post" autocomplete="off">
-          搜尋項目 : <input type="text" name="SearchField" readonly value="Voice"> <br>
-          聲優性別 : <input type="radio" name="Sex">Male <input type="radio" name="Sex">Female <br>
+          搜尋項目 : <input type="text" name="SearchField" readonly value="gender"> <br>
+          聲優性別 : <input type="radio" name="Sex" value="1">Male <input type="radio" name="Sex" value="0">Female <br>
           <input type="submit" value="搜尋">
       </form>
     <hr>
-    <h1 style="color:red">年齡搜尋</h1>
+    <h1 style="color:red">動畫搜尋</h1>
+      輸出該動畫內的聲優及其對應角色
        <form role="form" action="VoiceSearch" method="post" autocomplete="off">
-          搜尋項目 : <input type="text" name="SearchField" readonly value="Voice"> <br>
-          年齡 : <select name="VoiceAge">
-            <option value="None">None</option>
-            <option value="20">10-20</option>
-            <option value="30">20-30</option>
-            <option value="40">30-40</option>
-            <option value="50">40-50</option>
-            <option value="60">50-</option>
-          </select>
-          <input type="submit" value="搜尋">
-      </form>
+            搜尋項目 : <input type="text" name="SearchField" readonly value="VoiceAnime"> <br>
+       <select name="GenreName">
+          <option value="None">None</option>
+          <option value="1">Fate/Zero</option>
+          <option value="2">Steins;Gate
+          <option value="3">Re:CREATORS
+          <option value="4">Re:ゼロから始める異世界生活
+          <option value="5">とある魔術の禁書目録
+          <option value="6">四月是你的謊言
+          <option value="7">刀劍神域第一季
+          <option value="8">刀劍神域第二季
+          <option value="9">bang dream<br>
+       </select>
+        <input type="submit" value="搜尋">
+    </form>
     <hr>
   </div>
 </body>

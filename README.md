@@ -161,3 +161,5 @@ $ DESCRIBE [table]  看出你想要看的table裡面的field資訊
 [mysql language config intro](https://mariadb.com/kb/en/library/server-system-variables/#character_set_client)
 
 [mysql language config intro](https://dev.mysql.com/doc/refman/5.7/en/charset-server.html)
+
+[nodejs mysql prevent sql injection](http://www.dengzhr.com/node-js/877)

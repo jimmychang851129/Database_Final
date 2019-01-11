@@ -12,6 +12,9 @@
 	      width:80%;
 	    }
 	    </style>
+      <script type="text/javascript">
+        var classname = document.getElementsByClassName("classname");
+      </script>
   </head>
   <body>
   	    <nav class="navbar navbar-toggleable-md navbar-inverse bg-primary navbar-fixed">  
@@ -101,6 +104,12 @@
         <td><a href="#">角色列表(可再發request到後端要資料)</a>
         <td> <a href="#">動畫歌曲(發request到後端)</a>
     </table>
+    <hr>
+    <form action="AnimeDetail" method="post">
+      搜尋項目 : <input type="text" name="SearchField" readonly value="Casting"> <br>
+      動畫ID : <input type="text" name="input">
+      <input type="submit" value="搜尋">
+    </form>
     </div>
   </body>
 </html>
