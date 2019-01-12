@@ -86,7 +86,7 @@
   <hr>
    <div class="row">
     <div class="col">
-    <table id="result" border="1">
+    <table id="result" border="1" style="display: none;">
       <thead>
       <tr>
         <th>劇照
@@ -97,17 +97,32 @@
         <th>季度
         <th>評分
         <th>類型
+        <th>角色
       </thead>
       <tbody></tbody>
-      <p id="addResult">
     </table>
-    <hr>
-    <form action="AnimeDetail" method="post">
-      搜尋項目 : <input type="text" name="SearchField" readonly value="Casting"> <br>
-      動畫ID : <input type="text" name="input">
-      <input type="submit" value="搜尋">
-    </form>
     </div>
+    </div>
+    <hr>
+  </div>
+    <div class="popCenter">
+      <h1 id="castname" style="text-align: center; background-color: white; color: #009FCC;">動畫名+季度</h1>
+
+      <div class="row">
+       <div class="col">
+        <table id="castResult" border="1">
+        <thead>
+          <tr>
+            <th>角色名
+            <th>角色性別
+            <th>角色預覽
+            <th>聲優
+            <th>聲優預覽
+          </tr>
+        </thead>
+        <tbody></tbody>
+        </table>
+      </div>
     </div>
   </div>
 </body>
@@ -119,13 +134,49 @@
       $("#fold"+i).slideToggle();
     })
   }
+  // display Casting response
+  function showCast() {
+    var showcast = $(".castingShow").each(function(){
+      $(this).find(".submit").on("click", function() {
+        $("#result").css("display","none");
+        $("#castResult").find("tbody").html("");
+        $(".popCenter").css("display","block");
+      })
+      $(this).submit(function(e){
+        e.preventDefault();
+        $.ajax({
+          type: $(this).attr('method'),
+          url: $(this).attr('action'),
+          data: $(this).serialize(),
+          success: function(data) {
+            var object = JSON.parse(data);
+            for(var num = 0; num < object.length; num++){
+              var row = object[num];
+              console.log(row.Cimage);
+
+              var exactRow = '<tr><td>'+row.CharacterName+'<td>'+row.ChGender+'<td style="width:150px; height:150px;"><img id="character'+num+'" class="fitImg"><td>'+row.VName+'<td style="width:250px; height:250px;"><img id="actor'+num+'" class="fitImg">';
+              $("#castResult").find("tbody").append(exactRow);
+              $("#character"+num).attr("src", row.Cimage);
+              $("#actor"+num).attr("src", row.Vimage);
+              $("#castname").text(row.AName+" 第"+row.Season+"季");
+            }
+          },
+          complete: function(xhr, status) {
+            console.log("request showCast complete!");
+          }
+        })
+      })
+    })
+  }
+
   // FORMS
-  $(document).ready(function() {
     // handle anime searching
     var sendform = $("#byName");
     // clear previous records
     sendform.find(".submit").on("click", function() {
       $("#result").find("tbody").html("");
+      $("#result").css("display","table");
+      $(".popCenter").css("display","none");
     })
     // AJAX!! submit animesearch
     sendform.submit(function(e) {
@@ -140,10 +191,17 @@
           // display all animes in JSON array
           for(var num = 0; num < object.length; num++){
             var row = object[num];
-            var exactRow = '<tr><td style="width:250px; height:250px;"><img id="img'+num+'" class="fitImg">'+'<td>'+row.AName+'<td>'+row.sdName+'<td>'+row.AnimeDate+'<td>'+row.Episode+'<td>'+row.Season+'<td>'+row.Rating+'<td>'+row.Gtype;
+            var linkCasting1 = '<form action="AnimeDetail" method="post" class="castingShow"><input type="hidden" name="SearchField" value="Casting"><input value="'
+            var linkCasting2 = '" name="input" type="hidden"><input class="submit" type="submit" value="檢視角色">'
+
+            var exactRow = '<tr><td style="width:250px; height:250px;"><img id="img'+num+'" class="fitImg">'+'<td>'+row.AName+'<td>'+row.sdName+'<td>'+row.AnimeDate+'<td>'+row.Episode+'<td>'+row.Season+'<td>'+row.Rating+'<td>'+row.Gtype+'<td>'+linkCasting1+row.AnimeID+linkCasting2;
             $("#result").find("tbody").append(exactRow);
             $("#img"+num).attr("src", row.image);
           }
+        },
+        complete: function(xhr, status) {
+          showCast();
+          console.log("request animesearch completed!");
         }
       });
       e.preventDefault();
@@ -156,8 +214,10 @@
     // clear previous records
     sendform1.find(".submit").on("click", function() {
       $("#result").find("tbody").html("");
+      $("#result").css("display","table");
+      $(".popCenter").css("display","none");
     })
-    // AJAX!! submit animesearch
+    // AJAX!! submit genresearch
     sendform1.submit(function(e) {
       $.ajax({
         type: sendform1.attr('method'),
@@ -170,10 +230,17 @@
           // display all animes in JSON array
           for(var num = 0; num < object.length; num++){
             var row = object[num];
-            var exactRow = '<tr><td style="width:250px; height:250px;"><img id="img'+num+'" class="fitImg">'+'<td>'+row.AName+'<td>'+row.sdName+'<td>'+row.AnimeDate+'<td>'+row.Episode+'<td>'+row.Season+'<td>'+row.Rating+'<td>'+row.Genre;
+            var linkCasting1 = '<form action="AnimeDetail" method="post" class="castingShow"><input type="hidden" name="SearchField" value="Casting"><input value="'
+            var linkCasting2 = '" name="input" type="hidden"><input class="submit" type="submit" value="檢視角色">'
+
+            var exactRow = '<tr><td style="width:250px; height:250px;"><img id="img'+num+'" class="fitImg">'+'<td>'+row.AName+'<td>'+row.sdName+'<td>'+row.AnimeDate+'<td>'+row.Episode+'<td>'+row.Season+'<td>'+row.Rating+'<td>'+row.Genre+'<td>'+linkCasting1+row.AnimeID+linkCasting2;
             $("#result").find("tbody").append(exactRow);
             $("#img"+num).attr("src", row.image);
           }
+        },
+        complete: function(xhr, status) {
+          showCast();
+          console.log("request genresearch completed!");
         }
       });
       e.preventDefault();
@@ -186,6 +253,8 @@
     // clear previous records
     sendform2.find(".submit").on("click", function() {
       $("#result").find("tbody").html("");
+      $("#result").css("display","table");
+      $(".popCenter").css("display","none");
     })
     // AJAX!! submit studiosearch
     sendform2.submit(function(e) {
@@ -201,10 +270,17 @@
           // display all animes in JSON array
           for(var num = 0; num < object.length; num++){
             var row = object[num];
-            var exactRow = '<tr><td style="width:250px; height:250px;"><img id="img'+num+'" class="fitImg">'+'<td>'+row.AName+'<td>'+row.sdName+'<td>'+row.AnimeDate+'<td>'+row.Episode+'<td>'+row.Season+'<td>'+row.Rating+'<td>'+row.Gtype;
+            var linkCasting1 = '<form action="AnimeDetail" method="post" class="castingShow"><input type="hidden" name="SearchField" value="Casting"><input value="'
+            var linkCasting2 = '" name="input" type="hidden"><input class="submit" type="submit" value="檢視角色">'
+
+            var exactRow = '<tr><td style="width:250px; height:250px;"><img id="img'+num+'" class="fitImg">'+'<td>'+row.AName+'<td>'+row.sdName+'<td>'+row.AnimeDate+'<td>'+row.Episode+'<td>'+row.Season+'<td>'+row.Rating+'<td>'+row.Gtype+'<td>'+linkCasting1+row.AnimeID+linkCasting2;
             $("#result").find("tbody").append(exactRow);
             $("#img"+num).attr("src", row.image);
           }
+        },
+        complete: function(xhr, status) {
+          showCast();
+          console.log("request studiosearch completed!");
         }
       });
       e.preventDefault();
@@ -217,6 +293,8 @@
     // clear previous records
     sendform3.find(".submit").on("click", function() {
       $("#result").find("tbody").html("");
+      $("#result").css("display","table");
+      $(".popCenter").css("display","none");
     })
     // AJAX!! submit datesearch
     sendform3.submit(function(e) {
@@ -232,13 +310,20 @@
           // display all animes in JSON array
           for(var num = 0; num < object.length; num++){
             var row = object[num];
-            var exactRow = '<tr><td style="width:250px; height:250px;"><img id="img'+num+'" class="fitImg">'+'<td>'+row.AName+'<td>'+row.sdName+'<td>'+row.AnimeDate+'<td>'+row.Episode+'<td>'+row.Season+'<td>'+row.Rating+'<td>'+row.Gtype;
+            var linkCasting1 = '<form action="AnimeDetail" method="post" class="castingShow"><input type="hidden" name="SearchField" value="Casting"><input value="'
+            var linkCasting2 = '" name="input" type="hidden"><input class="submit" type="submit" value="檢視角色">'
+
+            var exactRow = '<tr><td style="width:250px; height:250px;"><img id="img'+num+'" class="fitImg">'+'<td>'+row.AName+'<td>'+row.sdName+'<td>'+row.AnimeDate+'<td>'+row.Episode+'<td>'+row.Season+'<td>'+row.Rating+'<td>'+row.Gtype+'<td>'+linkCasting1+row.AnimeID+linkCasting2;
             $("#result").find("tbody").append(exactRow);
             $("#img"+num).attr("src", row.image);
           }
+        },
+        complete: function(xhr, status) {
+          showCast();
+          console.log("request datesearch completed!");
         }
       });
       e.preventDefault();
     });
-  });
+
 </script>

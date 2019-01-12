@@ -11,38 +11,191 @@
   <body>
   	<div id='bar'></div>
 
-     <div class="container" style="padding-top:50px">
-      <h1 style="color:red">歌曲搜尋</h1>
-       <form role="form" action="SongSearch" method="post" autocomplete="off">
-            搜尋項目 : <input type="text" name="SearchField" readonly value="SongName"> <br>
-            歌曲名稱 : <input type="text" name="SongName"><br>
-            <input type="submit" value="搜尋">
-        </form>
+    <div class="container" style="padding-top:50px">
+    <div class="row">
+
+      <div class="col-md-4">
+      <h1 class="searchType" id="srch1">歌曲搜尋</h1>
+        <div class="foldForm" id="fold1">
+         <form id="byName" role="form" action="SongSearch" method="post" autocomplete="off">
+              <label class="lbl">搜尋項目</label> 
+              <input class="lockedInput" type="text" name="SearchField" readonly value="SongName"> <br><br>
+              <label class="lbl">歌曲名稱</label>
+              <input type="text" name="SongName"><br>
+              <input class="submit" type="submit" value="搜尋">
+          </form>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <h1 class="searchType" id="srch2">動畫歌曲搜尋</h1>
+        <div class="foldForm" id="fold2">
+         <form id="byAnime" role="form" action="SongSearch" method="post" autocomplete="off">
+            <label class="lbl">搜尋項目</label>
+            <input class="lockedInput" type="text" name="SearchField" readonly value="SongAnime"> <br><br>
+            <label class="lbl">動畫名稱</label>
+            <select name="AniSong">
+              <option value="None">None</option>
+              <option value="1">Fate/Zero</option>
+              <option value="2">Steins;Gate</option>
+              <option value="3">Re:CREATORS</option>
+              <option value="4">Re:ゼロから始める異世界生活</option>
+              <option value="5">とある魔術の禁書目録</option>
+              <option value="6">四月是你的謊言</option>
+              <option value="7">刀劍神域</option>
+              <option value="9">bang dream</option>
+            <input class="submit" type="submit" value="搜尋">
+          </form>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <h1 class="searchType" id="srch3">歌手搜尋</h1>
+        <div class="foldForm" id="fold3">
+          <form id="bySinger" role="form" action="SongSearch" method="post" autocomplete="off">
+            <label class="lbl">搜尋項目</label>
+            <input class="lockedInput" type="text" name="SearchField" readonly value="SongSinger"> <br><br>
+            <label class="lbl">歌手名稱</label>
+            <input type="text" name="Singer">
+            <input class="submit" type="submit" value="搜尋">
+          </form>
+        </div>
+      </div>
+
+    </div>
+
     <hr>
-    <h1 style="color:red">動畫歌曲搜尋</h1>
-       <form role="form" action="SongSearch" method="post" autocomplete="off">
-          搜尋項目 : <input type="text" name="SearchField" readonly value="SongAnime"> <br>
-          動畫名稱 : <select name="AniSong">
-            <option value="None">None</option>
-            <option value="1">Fate/Zero</option>
-            <option value="2">Steins;Gate</option>
-            <option value="3">Re:CREATORS</option>
-            <option value="4">Re:ゼロから始める異世界生活</option>
-            <option value="5">とある魔術の禁書目録</option>
-            <option value="6">四月是你的謊言</option>
-            <option value="7">刀劍神域</option>
-            <option value="9">bang dream</option>
-          <input type="submit" value="搜尋">
-      </form>
-    <hr>
-    <h1 style="color:red">歌手搜尋</h1>
-       <form role="form" action="SongSearch" method="post" autocomplete="off">
-          搜尋項目 : <input type="text" name="SearchField" readonly value="SongSinger"> <br>
-          歌手名稱 : <input type="text" name="Singer">
-          <input type="submit" value="搜尋">
-      </form>
-    <hr>
+
+    <div class="row">
+    <div class="col">
+    <table id="result" border="1" style="display: none;">
+      <thead>
+      <tr>
+        <th>歌名
+        <th>作詞
+        <th>作曲
+        <th>動畫
+        <th>類別
+        <th>歌手
+        <th>歌手預覽
+      </thead>
+      <tbody></tbody>
+    </table>
+    </div>
+    </div>
+
   </div>
 </body>
 </html>
 <script src="/javascripts/general.js"></script>
+<script>
+  for(let i=1;i<=3;i++){
+    $("#srch"+i).click(function(){
+      $("#fold"+i).slideToggle();
+    })
+  }
+
+  // FORMS
+    // 1.handle anime song searching
+    var sendform = $("#byName");
+    // clear previous records
+    sendform.find(".submit").on("click", function() {
+      $("#result").find("tbody").html("");
+      $("#result").css("display","table");
+    })
+    // AJAX!! submit songnamesearch
+    sendform.submit(function(e) {
+      $.ajax({
+        type: sendform.attr('method'),
+        url: sendform.attr('action'),
+        data: sendform.serialize(),
+        success: function(data)
+        {
+          var object = JSON.parse(data);
+          
+          // display all animes in JSON array
+          for(var num = 0; num < object.length; num++){
+            var row = object[num];
+
+            var exactRow = '<tr><td>'+row.SgName+'<td>'+row.Author+'<td>'+row.Composer+'<td>'+row.AName+'<td>'+row.Type+'<td>'+row.Singer+'<td style="width:250px; height:250px;"><img id="img'+num+'" class="fitImg">';
+            $("#result").find("tbody").append(exactRow);
+            $("#img"+num).attr("src", row.image);
+          }
+        },
+        complete: function(xhr, status) {
+          console.log("request animesearch completed!");
+        }
+      });
+      e.preventDefault();
+    });
+
+
+     // 2.handle songname searching
+    var sendform1 = $("#byAnime");
+    // clear previous records
+    sendform1.find(".submit").on("click", function() {
+      $("#result").find("tbody").html("");
+      $("#result").css("display","table");
+    })
+    // AJAX!! submit animesongsearch
+    sendform1.submit(function(e) {
+      $.ajax({
+        type: sendform1.attr('method'),
+        url: sendform1.attr('action'),
+        data: sendform1.serialize(),
+        success: function(data)
+        {
+          var object = JSON.parse(data);
+          
+          // display all animes in JSON array
+          for(var num = 0; num < object.length; num++){
+            var row = object[num];
+
+            var exactRow = '<tr><td>'+row.SongName+'<td>'+row.Author+'<td>'+row.Composer+'<td>'+row.AName+'<td>'+row.Type+'<td>'+row.SingerName+'<td style="width:250px; height:250px;"><img id="img'+num+'" class="fitImg">';
+            $("#result").find("tbody").append(exactRow);
+            $("#img"+num).attr("src", row.image);
+          }
+        },
+        complete: function(xhr, status) {
+          console.log("request animesearch completed!");
+        }
+      });
+      e.preventDefault();
+    });
+
+
+    // 3.handle singername searching
+    var sendform2 = $("#bySinger");
+    // clear previous records
+    sendform2.find(".submit").on("click", function() {
+      $("#result").find("tbody").html("");
+      $("#result").css("display","table");
+    })
+    // AJAX!! submit animesongsearch
+    sendform2.submit(function(e) {
+      $.ajax({
+        type: sendform2.attr('method'),
+        url: sendform2.attr('action'),
+        data: sendform2.serialize(),
+        success: function(data)
+        {
+          var object = JSON.parse(data);
+          
+          // display all animes in JSON array
+          for(var num = 0; num < object.length; num++){
+            var row = object[num];
+
+            var exactRow = '<tr><td>'+row.SongName+'<td>'+row.Author+'<td>'+row.Composer+'<td>'+row.AName+'<td>'+row.Type+'<td>'+row.SingerName+'<td style="width:250px; height:250px;"><img id="img'+num+'" class="fitImg">';
+            $("#result").find("tbody").append(exactRow);
+            $("#img"+num).attr("src", row.image);
+          }
+        },
+        complete: function(xhr, status) {
+          console.log("request animesearch completed!");
+        }
+      });
+      e.preventDefault();
+    });
+
+
+</script>

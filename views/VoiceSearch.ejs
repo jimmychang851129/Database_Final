@@ -12,40 +12,207 @@
   	<div id='bar'></div>
 
      <div class="container" style="padding-top:50px">
-      <h1 style="color:red">聲優搜尋</h1>
-       <form role="form" action="VoiceSearch" method="post" autocomplete="off">
-            搜尋項目 : <input type="text" name="SearchField" readonly value="VoiceName"> <br>
-            聲優名稱 : <input type="text" name="VoiceName"><br>
-            <input type="submit" value="搜尋">
+      <div class="row">
+      <div class="col-md-4">
+        <h1 class="searchType" id="srch1">聲優搜尋</h1>
+        <div class="foldForm" id="fold1">
+        <form id="byName" action="VoiceSearch" method="post" autocomplete="off">
+          <label class="lbl">搜尋項目</label> 
+          <input class="lockedInput" type="text" name="SearchField" readonly value="VoiceName"> <br><br>
+          <label class="lbl">聲優名字</label> 
+          <input type="text" name="Voice"><br>
+          <input class="submit" type="submit" value="搜尋">
         </form>
+      </div>
+      </div>
+
+      <div class="col-md-4">
+        <h1 class="searchType" id="srch2">性別搜尋</h1>
+        <div class="foldForm" id="fold2">
+        <form id="byGender" action="VoiceSearch" method="post" autocomplete="off">
+          <label class="lbl">搜尋項目</label> 
+          <input class="lockedInput" type="text" name="SearchField" readonly value="gender"> <br><br>
+          <label class="lbl">聲優性別</label> 
+          <input type="radio" name="Sex" value="1"><span class="chkbx">男性</span>   <input type="radio" name="Sex" value="0"><span class="chkbx">女性</span><br><br>
+          <input class="submit" type="submit" value="搜尋">
+        </form>
+      </div>
+      </div>
+
+      <div class="col-md-4">
+        <h1 class="searchType" id="srch3">動畫搜尋</h1>
+          <!-- 輸出該動畫內的聲優及其對應角色 -->
+        <div class="foldForm" id="fold3">
+           <form id="byRole" role="form" action="VoiceSearch" method="post" autocomplete="off">
+          <label class="lbl">搜尋項目</label>
+          <input class="lockedInput" type="text" name="SearchField" readonly value="VoiceAnime"> <br>
+           <select name="GenreName">
+              <option value="None">None</option>
+              <option value="1">Fate/Zero</option>
+              <option value="2">Steins;Gate
+              <option value="3">Re:CREATORS
+              <option value="4">Re:ゼロから始める異世界生活
+              <option value="5">とある魔術の禁書目録
+              <option value="6">四月是你的謊言
+              <option value="7">刀劍神域第一季
+              <option value="8">刀劍神域第二季
+              <option value="9">bang dream<br>
+           </select>
+            <input class="submit" type="submit" value="搜尋">
+        </form>
+      </div>
+      </div>
+    </div>
+    
     <hr>
-    <h1 style="color:red">性別搜尋</h1>
-       <form role="form" action="VoiceSearch" method="post" autocomplete="off">
-          搜尋項目 : <input type="text" name="SearchField" readonly value="gender"> <br>
-          聲優性別 : <input type="radio" name="Sex" value="1">Male <input type="radio" name="Sex" value="0">Female <br>
-          <input type="submit" value="搜尋">
-      </form>
-    <hr>
-    <h1 style="color:red">動畫搜尋</h1>
-      輸出該動畫內的聲優及其對應角色
-       <form role="form" action="VoiceSearch" method="post" autocomplete="off">
-            搜尋項目 : <input type="text" name="SearchField" readonly value="VoiceAnime"> <br>
-       <select name="GenreName">
-          <option value="None">None</option>
-          <option value="1">Fate/Zero</option>
-          <option value="2">Steins;Gate
-          <option value="3">Re:CREATORS
-          <option value="4">Re:ゼロから始める異世界生活
-          <option value="5">とある魔術の禁書目録
-          <option value="6">四月是你的謊言
-          <option value="7">刀劍神域第一季
-          <option value="8">刀劍神域第二季
-          <option value="9">bang dream<br>
-       </select>
-        <input type="submit" value="搜尋">
-    </form>
-    <hr>
+
+   <div class="row">
+    <div class="col">
+    <table class="voicetable" id="result" border="1" style="display: none;">
+      <thead>
+      <tr>
+        <th>聲優名字
+        <th>聲優性別
+        <th>生日
+        <th>出道年份
+        <th>經紀公司
+        <th>聲優預覽
+        <th>角色
+      </thead>
+      <tbody></tbody>
+    </table>
+    </div>
   </div>
 </body>
 </html>
 <script src="/javascripts/general.js"></script>
+<script>
+  for(let i=1;i<=3;i++){
+    $("#srch"+i).click(function(){
+      $("#fold"+i).slideToggle();
+    })
+  }
+
+  // FORMS
+    // 1. handle voiceactor searching
+    var sendform = $("#byName");
+    // clear previous records
+    sendform.find(".submit").on("click", function() {
+      $("#result").find("tbody").html("");
+      $("#result").css("display","table");
+    })
+    sendform.submit(function(e) {
+      $.ajax({
+        type: sendform.attr('method'),
+        url: sendform.attr('action'),
+        data: sendform.serialize(),
+        success: function(data)
+        {
+          var object = JSON.parse(data);
+          console.log(object)
+          // display all animes in JSON array
+          for(var num = 0; num < object.length; num++){
+            var row = object[num];
+            var gender = "男性";
+            if(row.Gender == 1){
+              gender = "女性";
+            }
+            var agency = row.Agent;
+            if(agency == null){
+              agency = "無";
+            }
+
+            var exactRow = '<tr><td>'+row.VName+'<td>'+gender+'<td>'+row.Birthday+'<td>'+row.Debut+'<td>'+agency+'<td style="width:250px; height:250px;"><img id="img'+num+'" class="fitImg">'+'<td>-';
+            $("#result").find("tbody").append(exactRow);
+            $("#img"+num).attr("src", row.image);
+          }
+        },
+        complete: function(xhr, status) {
+          console.log("request voicesearch completed!");
+        }
+      });
+      e.preventDefault();
+    });
+
+    // 2. handle gender searching
+    var sendform1 = $("#byGender");
+    // clear previous records
+    sendform1.find(".submit").on("click", function() {
+      $("#result").find("tbody").html("");
+      $("#result").css("display","table");
+    })
+    sendform1.submit(function(e) {
+      $.ajax({
+        type: sendform1.attr('method'),
+        url: sendform1.attr('action'),
+        data: sendform1.serialize(),
+        success: function(data)
+        {
+          var object = JSON.parse(data);
+          console.log(object)
+          // display all animes in JSON array
+          for(var num = 0; num < object.length; num++){
+            var row = object[num];
+            var gender = "男性";
+            if(row.Gender == 1){
+              gender = "女性";
+            }
+            var agency = row.Agent;
+            if(agency == null){
+              agency = "無";
+            }
+
+            var exactRow = '<tr><td>'+row.VName+'<td>'+gender+'<td>'+row.Birthday+'<td>'+row.Debut+'<td>'+agency+'<td style="width:250px; height:250px;"><img id="img'+num+'" class="fitImg">'+'<td>-';
+            $("#result").find("tbody").append(exactRow);
+            $("#img"+num).attr("src", row.image);
+          }
+        },
+        complete: function(xhr, status) {
+          console.log("request voicesearch completed!");
+        }
+      });
+      e.preventDefault();
+    });
+
+    // 3. handle character searching
+    var sendform2 = $("#byRole");
+    // clear previous records
+    sendform2.find(".submit").on("click", function() {
+      $("#result").find("tbody").html("");
+      $("#result").css("display","table");
+    })
+    sendform2.submit(function(e) {
+      $.ajax({
+        type: sendform2.attr('method'),
+        url: sendform2.attr('action'),
+        data: sendform2.serialize(),
+        success: function(data)
+        {
+          var object = JSON.parse(data);
+          console.log(object)
+          // display all animes in JSON array
+          for(var num = 0; num < object.length; num++){
+            var row = object[num];
+            var charname = '- '+row.AName+' -<br>'+row.CharacterName;
+            var gender = "男性";
+            if(row.Gender == 1){
+              gender = "女性";
+            }
+            var agency = row.Agent;
+            if(agency == null){
+              agency = "無";
+            }
+
+            var exactRow = '<tr><td>'+row.VName+'<td>'+gender+'<td>'+'-'+'<td>'+'-'+'<td>'+agency+'<td style="width:250px; height:250px;"><img id="img'+num+'" class="fitImg">'+'<td>'+charname;
+            $("#result").find("tbody").append(exactRow);
+            $("#img"+num).attr("src", row.image);
+          }
+        },
+        complete: function(xhr, status) {
+          console.log("request charactersearch completed!");
+        }
+      });
+      e.preventDefault();
+    });
+
+</script>

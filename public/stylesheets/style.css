@@ -32,14 +32,14 @@ td {
 h1.searchType{
 	font-size: 40pt;
 	text-align: center;
-	color: #6acfa2;
-	text-shadow: 0px 0px 3px black;
+	color: white;
+	text-shadow: 0px 0px 3px #009FCC;
 	cursor: pointer;
 	background: rgba(0%, 0%, 0%, 0.4);
 }
 h1.searchType:hover{
 	color: white;
-	text-shadow: 0px 0px 3px #6acfa2;
+	text-shadow: 0px 0px 3px yellow;
 	background: rgba(0%, 0%, 0%, 0.9);
 }
 .foldForm{
@@ -60,14 +60,6 @@ input.lockedInput{
 	color: white;
 	text-shadow: 2px 2px 15px black;
 }
-.submit{
-	background: #0080FF;
-	color: white;
-}
-.submit:hover{
-	color: #6acfa2;
-	border: 2px white solid;
-}
 .chkbx{
 	color: #0080FF;
 	font-weight: bold;
@@ -77,4 +69,29 @@ input.lockedInput{
 .fitImg{
 	max-height:100%;
 	max-width:100%;
+}
+.submit{
+	border: 4px #009FCC solid;
+	background: black;
+	color: #009FCC;
+}
+.submit:hover{
+	border: 4px white solid;
+	background: #009FCC;
+	color: white;
+	font-weight: bold;
+}
+.topPopup{
+	position: absolute;
+	top: 10px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+	border: 5px red dotted;
+}
+.popCenter{
+	padding-left: 5%;
+	padding-right: 5%;
+	font-family: DFKai-sb;
+	display: none;
 }

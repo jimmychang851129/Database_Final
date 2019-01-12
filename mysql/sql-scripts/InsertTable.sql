@@ -123,7 +123,7 @@ Insert into Agent(AgName,Location,FoundDate,President) VALUES('AXL ONE','東京�
 Insert into VoiceActor(VName,Gender,Birthday,Debut,Agent,image) VALUES('小山力也',FALSE,'1218','1987','劇団俳優座','shaoshan.jpeg');
 Insert into VoiceActor(VName,Gender,Birthday,Debut,Agent,image) VALUES('大原沙耶香',TRUE,'1206','1998','東京俳優生活協同組合','dauan.jpeg');
 Insert into VoiceActor(VName,Gender,Birthday,Debut,Agent,image) VALUES('川澄綾子',TRUE,'0330','1997','大澤事務所','chanchen.jpeg');
-Insert into VoiceActor(VName,Gender,Birthday,Debut,Agent) VALUES('中田讓治',FALSE,'0422','1985','大澤事務所');
+Insert into VoiceActor(VName,Gender,Birthday,Debut,Agent) VALUES('中田讓治',FALSE,'0422','1985','大澤事務所','Nakata_George.jpg');
 Insert into VoiceActor(VName,Gender,Birthday,Debut,Agent,image) VALUES('宮野真守',FALSE,'0608','2001','株式会社劇団ひまわり','miyano.jpeg');
 Insert into VoiceActor(VName,Gender,Birthday,Debut,Agent,image) VALUES('花澤香菜',TRUE,'0225','2003','大澤事務所','hanazawa.jpg');
 Insert into VoiceActor(VName,Gender,Birthday,Debut,Agent,image) VALUES('關智一',FALSE,'0908','1993','Atomic Monkey','kanzi.jpg');

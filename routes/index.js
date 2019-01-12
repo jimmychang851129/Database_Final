@@ -1,5 +1,5 @@
 var express = require('express');
-var mysql = require('mysql')
+var mysql = require('mysql');
 
 var router = express.Router();
 
@@ -26,7 +26,7 @@ const connection = mysql.createConnection({
 router.get('/', function(req, res, next) {
   // res.render('index', { title: 'Express' });
   res.render('index');
-});
+})
 
 
 router.get('/DBsearch',function(req,res,next){
@@ -160,10 +160,11 @@ router.post('/AnimeSearch',function(req,res,next){
       res.send(JSON.stringify(output));
     }
   }
+})
 
 router.post('/VoiceSearch',function(req,res,next){
 	if(req.body.SearchField == "VoiceName"){
-		var VName = req.body.VoiceName.trim();
+		var VName = req.body.Voice.trim();
 		var queryString = "SELECT * FROM VoiceActor WHERE VName = ?"
 		connection.query(queryString , VName , (err,results,fields)=>{
 			if(results){
@@ -172,11 +173,11 @@ router.post('/VoiceSearch',function(req,res,next){
 				for(var i = 0 ; i < results.length ; i++){
 					results[i].image = 'images/voiceactor/' + results[i].image
 				}
-				res.send(results);
+				res.send(JSON.stringify(results));
 			}
 			else{
 				output = {VName : 'None'};
-				res.send(output);
+				res.send(JSON.stringify(output));
 			}
 		})
 	}
@@ -197,11 +198,11 @@ router.post('/VoiceSearch',function(req,res,next){
 				for(var i = 0 ; i < results.length ; i++){
 					results[i].image = 'images/voiceactor/' + results[i].image
 				}
-				res.send(results);
+				res.send(JSON.stringify(results));
 			}
 			else{
 				output = {VName : 'None'};
-				res.send(output);
+				res.send(JSON.stringify(output));
 			}
 		})
 	}
@@ -218,11 +219,11 @@ router.post('/VoiceSearch',function(req,res,next){
 				for(var i = 0  ; i < results.length ; i++){
 					results[i].image = 'images/voiceactor/' + results[i].image;
 				}
-				res.send(results);
+				res.send(JSON.stringify(results));
 			}
 			else{
 				output = {VName : 'None'};
-				res.send(output);
+				res.send(JSON.stringify(output));
 			}
 		})
 	}
@@ -248,11 +249,11 @@ router.post('/SongSearch',function(req,res,next){
 					}
 					results[i].image = "images/singer/" + results[i].image;
 				}
-				res.send(results)
+				res.send(JSON.stringify(results))
 			}
 			else{
 				output = {SgName : 'None'}
-				res.send(output);
+				res.send(JSON.stringify(output));
 			}
 		})
 	}
@@ -271,11 +272,11 @@ router.post('/SongSearch',function(req,res,next){
 					}
 					results[i].image = "images/singer/" + results[i].image;
 				}
-				res.send(results)
+				res.send(JSON.stringify(results))
 			}
 			else{
 				output = {SgName : 'None'}
-				res.send(output);
+				res.send(JSON.stringify(output));
 			}
 		})
 	}
@@ -295,11 +296,11 @@ router.post('/SongSearch',function(req,res,next){
 					}
 					results[i].image = "images/singer/" + results[i].image;
 				}
-				res.send(results);
+				res.send(JSON.stringify(results));
 			}
 			else{
 				output = {SgName : 'None'}
-				res.send(output);
+				res.send(JSON.stringify(output));
 			}
 		})
 	}
@@ -317,11 +318,11 @@ router.post('/AnimeDetail',function(req,res,next){
 			if(results){
 				console.log("result = ",results);
 				console.log("length = ",results.length);
-				res.send(results);
+				res.send(JSON.stringify(results));
 			}
 			else{
 				output = {VName : 'None'};
-				res.send(output);
+				res.send(JSON.stringify(output));
 			}
 		})
 	}
@@ -336,14 +337,15 @@ router.post('/AnimeDetail',function(req,res,next){
 			if(results){
 				console.log("result = ",results);
 				console.log("length = ",results.length);		// need modify
-				// for(var i = 0 ; i < results.length ; i++){
-
-				// }
-				res.send(results);
+				for(var i = 0  ; i < results.length ; i++){
+					results[i].Vimage = 'images/voiceactor/' + results[i].Vimage;
+					results[i].Cimage = 'images/casting/' + results[i].Cimage;
+				}
+				res.send(JSON.stringify(results));
 			}
 			else{
 				output = {VName : 'None'};
-				res.send(output);
+				res.send(JSON.stringify(output));
 			}
 		})
 	}
@@ -357,16 +359,14 @@ router.post('/AnimeDetail',function(req,res,next){
 				for(var i = 0 ; i < results.length ; i++){
 					results[i].image = "images/singer" + results[i].image;
 				}
-				res.send(results);
+				res.send(JSON.stringify(results));
 			}
 			else{
 				output = {VName : 'None'};
-				res.send(output);
+				res.send(JSON.stringify(output));
 			}
 		})
 	}
 })
-
-
 
 module.exports = router;
