@@ -25,7 +25,23 @@ td {
   border:1px solid #000;
   background-color: black;
   padding:5px;
-} 
+}
+.about {
+	text-align: center;
+}
+.about hr{
+	background-color: #009FCC;
+}
+.about h1{
+	color: #009FCC;
+	font-weight: bold;
+	text-shadow: 0px 2px 8px black;
+}
+.about h2{
+	color: white;
+	font-weight: bold;
+	text-shadow: 0px 0px 3px blue;
+}
 .searchType {
 	font-family: DFKai-sb;
 }
